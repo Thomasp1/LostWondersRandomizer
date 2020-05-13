@@ -1,0 +1,26 @@
+{
+  "Siracusa": {
+    "Requirements":[
+      "Armada"
+      ],
+    "A":{
+      "resource": "Glass",
+      "theme": [
+        "Victory Points",
+        "Shields",
+        "Anchors",
+        "Move Ship Choice"
+      ]
+    },
+    "B":{
+      "resource": "Glass",
+      "theme": [
+        "Money",
+        "Lose Money Commerce",
+        "Shields",
+        "Anchors",
+        "Move Different Ships Choice"
+      ]
+    }
+  }
+}

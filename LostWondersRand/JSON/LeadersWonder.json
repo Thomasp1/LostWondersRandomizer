@@ -1,0 +1,22 @@
+{
+  "Roma": {
+    "Requirements":[
+      "Leaders"
+      ],
+    "A":{
+      "resource": "Free Leader Recruit",
+      "theme": [
+        "Victory Points"
+      ]
+    },
+    "B":{
+      "resource": "Leader Discount with Neighbor",
+      "theme": [
+        "Money",
+        "Leader Draw",
+        "Leader Recruit",
+        "Victory Points"
+      ]
+    }
+  }
+}

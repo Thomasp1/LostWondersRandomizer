@@ -1,0 +1,183 @@
+{
+"Cotlliure": {
+    "A":{
+      "resource": "Brick",
+      "theme": [
+        "Victory Points",
+        "Built Card Swap Discard"
+      ]
+    },
+    "B":{
+      "resource": "Brick",
+      "theme": [
+        "Victory Points",
+        "Pass Hands Skip"
+      ]
+    }
+  },
+"Nibbur": {
+    "A":{
+      "resource": "Wood",
+      "theme": [
+        "Victory Points",
+        "Built Card Double Effect"
+      ]
+    },
+    "B":{
+      "resource": "Wood",
+      "theme": [
+        "Victory Points",
+        "Built Card Double Effect"
+      ]
+    }
+  },
+"Elysion Pedion": {
+    "Requirements":[
+      "No Midas Leader"
+      ],
+    "A":{
+      "resource": "Papyrus/Debt Immunity",
+      "theme": [
+        "Discard Extra Coin"
+      ]
+    },
+    "B":{
+      "resource": "Papyrus/Debt Immunity",
+      "theme": [
+          "Discard Extra Coin",
+          "Discard Debt Other",
+          "Discard Remove Defeat"
+      ]
+    }
+  },
+"Ephyra": {
+    "Requirements":[
+      "No Teams",
+	  "5 Players or more"
+      ],
+    "A":{
+      "resource": "Fabric",
+      "theme": [
+        "Force Others Age Discard",
+		"Victory Points"
+      ]
+    },
+    "B":{
+      "resource": "Fabric",
+      "theme": [
+          "Force Others No Chaining",
+		  "Victory Points"
+      ]
+    }
+  },
+"King's Landing": {
+    "Requirements":[
+      "Cities"
+      ],
+    "A":{
+      "resource": "Stone/Choose Draw Winner",
+      "theme": [
+        "Shields",
+		"Diplomacy",
+		"Victory Points"
+      ]
+    },
+    "B":{
+      "resource": "Stone/Choose Draw Winner",
+      "theme": [
+          "Money",
+          "Coin for Chaining",
+          "Victory Points"
+      ]
+    }
+  },
+"Machu Picchu": {
+    "A":{
+      "resource": "Ore",
+      "theme": [
+        "Brown Resource Choice",
+		"Copy Neighbour Purple Card",
+		"Victory Points",
+		"Copy Neighbour Wonder"
+      ]
+    },
+    "B":{
+      "resource": "Ore",
+      "theme": [
+          "Coin for Resource",
+          "Build Purple Card Free",
+          "Victory Points For Wonder Built",
+		  "Return Defeat Token Neighbour"
+      ]
+    }
+  },
+"Myst": {
+    "A":{
+      "resource": "Papyrus",
+      "theme": [
+        "Copy Player Resource Card",
+		"Copy Player Red Card",
+		"Copy Player Purple Card"
+      ]
+    },
+    "B":{
+      "resource": "Papyrus",
+      "theme": [
+          "Money",
+          "Glass",
+          "Reverse Draft Order",
+		  "Shield for Green Card"
+      ]
+    }
+  },
+"Pompeii": {
+    "A":{
+      "resource": "Glass",
+      "theme": [
+        "Victory Points",
+		"Victory Points for Blue Card"
+      ]
+    },
+    "B":{
+      "resource": "Glass",
+      "theme": [
+          "Trade Discount",
+          "Science Choice",
+          "Victory Points",
+		  "Shields"
+      ]
+    }
+  },
+"Springfield": {
+    "A":{
+      "resource": "Money",
+      "theme": [
+        "Victory Points",
+		"Money",
+		"Shields"
+      ]
+    },
+    "B":{
+      "resource": "Money",
+      "theme": [
+          "Copy Neighbour Wonder",
+      ]
+    }
+  },
+"Trojan Horse": {
+    "A":{
+      "resource": "Money",
+      "theme": [
+        "Victory Points",
+		"Steal Neighbour Wonder"
+      ]
+    },
+    "B":{
+      "resource": "Money",
+      "theme": [
+          "Fabric/Wood/Ore Free",
+          "Steal Neighbour Wonder",
+      ]
+    }
+  }
+}

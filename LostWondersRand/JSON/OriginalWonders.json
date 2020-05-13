@@ -1,0 +1,114 @@
+
+{
+  "Alexandria": {
+    "A":{
+      "resource": "Glass",
+      "theme": [
+        "Brown Resource Choice",
+        "Victory Points"
+      ]
+    },
+    "B":{
+      "resource": "Glass",
+      "theme": [
+        "Brown Resource Choice",
+        "Grey Resource Choice",
+        "Victory Points"
+      ]
+    }
+  },
+  "Babylon":{
+    "A":{
+      "resource": "Brick",
+      "theme": [
+        "Science Choice",
+        "Victory Points"
+      ]
+    },
+    "B":{
+      "resource": "Brick",
+      "theme": [
+        "Play Last Card",
+        "Science Choice",
+        "Victory Points"
+      ]
+    }
+  },
+  "Ephesos":{
+    "A":{
+      "resource": "Papyrus",
+      "theme": [
+        "Money",
+        "Victory Points"
+      ]
+    },
+    "B":{
+      "resource": "Papyrus",
+      "theme": [
+        "Money",
+        "Victory Points"
+      ]
+    }
+  },
+  "Gizah":{
+    "A":{
+      "resource": "Stone",
+      "theme": ["Victory Points"]
+    },
+    "B":{
+      "resource": "Stone",
+      "theme": ["Victory Points"]
+    }    
+  },
+  "Halikarnassos":{
+    "A":{
+      "resource": "Fabric",
+      "theme": [
+        "Build Discard",
+        "Victory Points"
+      ]
+    },
+    "B":{
+      "resource": "Fabric",
+      "theme": [
+        "Build Discard",
+        "Victory Points"
+      ]
+    }
+  },
+  "Olympia":{
+    "A":{
+      "resource": "Wood",
+      "theme": [
+        "Build Age Free",
+        "Victory Points"
+      ]
+    },
+    "B":{
+      "resource": "Wood",
+      "theme": [
+        "Brown Resource Discount",
+        "Guild Copy",
+        "Victory Points"
+      ]
+    }
+  },
+  "Rhodos":{
+    "A":{
+      "resource": "Ore",
+      "theme": [
+        "Shields",
+        "Victory Points"
+        ]
+    },
+    "B":{
+      "resource": "Ore",
+      "theme": [
+        "Shields",
+        "Money",
+        "Victory Points"
+      ]
+    }    
+  }
+}
+

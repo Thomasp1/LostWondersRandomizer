@@ -1,0 +1,24 @@
+{
+  "Catan": {
+    "Requirements":[
+      "Leaders",
+      "Cities"
+      ],
+    "A":{
+      "resource": "Two Unused Resource One Choice",
+      "theme": [
+        "Victory Points",
+        "Money",
+        "Debt"
+      ]
+    },
+    "B":{
+      "resource": "Two Unused Resource One Choice",
+      "theme": [
+        "Leader Recruit",
+        "Shields",
+        "Victory Points"
+      ]
+    }
+  }
+}

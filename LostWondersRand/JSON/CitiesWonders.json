@@ -1,0 +1,39 @@
+{
+  "Byzantium": {
+    "Requirements":[
+      "Cities"
+      ],
+    "A":{
+      "resource": "Stone",
+      "theme": [
+        "Victory Points",
+        "Diplomacy"
+      ]
+    },
+    "B":{
+      "resource": "Stone",
+      "theme": [
+        "Victory Points",
+        "Diplomacy"
+      ]
+    }
+  },
+ "Petra": {
+    "Requirements":[
+      "Cities"
+      ],
+    "A":{
+      "resource": "Brick",
+      "theme": [
+        "Victory Points"
+      ]
+    },
+    "B":{
+      "resource": "Brick",
+      "theme": [
+        "Debt",
+        "Victory Points"
+      ]
+    }
+  }
+}

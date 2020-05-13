@@ -1,0 +1,76 @@
+{
+  "Abu Simbel": {
+    "Requirements":[
+      "Leaders"
+      ],
+    "A":{
+      "resource": "Papyrus",
+      "theme": [
+        "Leader Mummify",
+        "Victory Points"
+      ]
+    },
+    "B":{
+      "resource": "Papyrus",
+      "theme": [
+        "Leader Mummify"
+      ]
+    }
+  },
+  "Manneken Pis":{
+    "A":{
+      "resource": "Money",
+      "theme": [
+        "Copy Neighbor Wonder"
+      ]
+    },
+    "B":{
+      "resource": "Money",
+      "theme": [
+        "Money",
+        "Shields",
+        "Victory Points"
+      ]
+    }
+  },
+  "Stonehenge":{
+    "A":{
+      "resource": "Wood",
+      "theme": [
+        "Stone Victory Points",
+        "Victory Points"
+      ]
+    },
+    "B":{
+      "resource": "Wood",
+      "theme": [
+        "Stone Victory Points and Money",
+        "Victory Points Neighbor Color Choice"
+      ]
+    }
+  },
+  "The Great Wall":{
+    "Requirements":[
+      "Cities"
+      ],
+    "A":{
+      "resource": "Fabric",
+      "theme": [
+        "Money",
+        "Science Choice",
+        "Shields",
+        "Build Discard"
+        ]
+    },
+    "B":{
+      "resource": "Fabric",
+      "theme": [
+        "Money with Neighbor",
+        "Science Steal",
+        "Diplomacy",
+        "Debt",
+        "Produce Unbuilt Resource"
+        ]
+    }    
+  }
+}

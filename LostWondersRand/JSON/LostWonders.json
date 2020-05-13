@@ -1,0 +1,489 @@
+{
+  "Angkor Wat": {
+    "Requirements":[
+      "Cities"
+      ],
+    "A":{
+      "resource": "Glass",
+      "theme": [
+        "Free Chain from Neighbour",
+        "Coin for Green Card",
+        "Coin for Blue Card",
+        "Coin for Gray Card",
+        "Victory Points for Green Card",
+        "Victory Points"
+      ]
+    },
+    "B":{
+      "resource": "Ore",
+      "theme": [
+        "Wonder Built Debt",
+        "Coin for Red Card",
+        "Coin for Yellow Card",
+        "Coin for Brown Card",
+        "Victory Points for Brown Card",
+        "Victory Points"
+      ]
+    }
+  },
+  "Antiocheia": {
+    "A":{
+      "resource": "Stone",
+      "theme": [
+        "Victory Points",
+        "Money",
+        "Victory Points for Yellow Card"
+      ]
+    },
+    "B":{
+      "resource": "Stone",
+      "theme": [
+        "Double Coins for Yellow Card",
+        "Double Victory Points for Yellow Card"
+      ]
+    }
+  },
+  "Atlantis": {
+    "Requirements":[
+      "Extra Guild Cards"
+      ],
+    "A":{
+      "resource": "Glass",
+      "theme": [
+        "Victory Points",
+        "Purple Card Discount",
+        "Victory Points for Purple Card"
+      ]
+    },
+    "B":{
+      "resource": "Glass",
+      "theme": [
+        "Coin for Chain",
+        "Draw Purple Card Build Free",
+        "Victory Points for Purple Card"
+      ]
+    }
+  },
+  "Babel(H)": {
+    "A":{
+      "resource": "Papyrus",
+      "theme": [
+        "Victory Points",
+        "Victory Points for Brown Card",
+        "Victory Points for Gray Card"
+      ]
+    },
+    "B":{
+      "resource": "Papyrus",
+      "theme": [
+        "Victory Points minus Brown Card",
+        "Victory Points minus Gray Card"
+      ]
+    }
+  },
+  "Beiping": {
+    "Requirements":[
+      "No Alexander Leader",
+      "No Teams"
+      ],
+    "A":{
+      "resource": "Stone",
+      "theme": [
+        "Victory Points",
+        "Resource Discount Trade All Players"
+      ]
+    },
+    "B":{
+      "resource": "Stone",
+      "theme": [
+        "Money",
+        "Resource Trade All Players",
+        "2 Unused Brick 1 Victory Token",
+        "1 Coin 2 1-Point Victory Token for 3-Point Victory Token",
+        "Shields"
+      ]
+    }
+  },
+  "Brigadoon": {
+    "Requirements":[
+      "No Teams",
+      "4 Players or more"
+      ],
+    "A":{
+      "resource": "Brick",
+      "theme": [
+        "Victory Points",
+        "Phasing"
+      ]
+    },
+    "B":{
+      "resource": "Brick",
+      "theme": [
+        "1 Coin Resource from Bank per Turn",
+        "Phasing",
+        "Victory Points"
+      ]
+    }
+  },
+  "Capua": {
+    "A":{
+      "resource": "Ore",
+      "theme": [
+        "Victory Points",
+        "Shields"
+      ]
+    },
+    "B":{
+      "resource": "Ore",
+      "theme": [
+        "Neighbor Add Defeat for Defeat",
+        "Victory Points",
+        "Victory Points for Shields"
+      ]
+    }
+  },
+  "Caylus": {
+    "A":{
+      "resource": "Wood/Stone",
+      "theme": [
+        "Money",
+        "Money for Green Cards Stage 2",
+        "Victory Points",
+        "Count Self Cards for Guild"
+      ]
+    },
+    "B":{
+      "resource": "Wood/Stone",
+      "theme": [
+        "Money",
+        "Money for Green Cards Stage 2",
+        "Victory Points",
+        "Count Self Cards for Guild"
+      ]
+    }
+  },
+  "Chichen Itza": {
+    "A":{
+      "resource": "None",
+      "theme": [
+        "Victory Points"
+      ]
+    },
+    "B":{
+      "resource": "None",
+      "theme": [
+        "Victory Points"
+      ]
+    }
+  },
+  "Citadels": {
+    "Requirements":[
+      "Cities",
+      "Leaders"
+      ],
+    "A":{
+      "resource": "Ore",
+      "theme": [
+        "Force Others Discard No Coin",
+        "Swap Hand with Another",
+        "Diplomacy",
+        "Victory Points for Blue Card",
+        "Coin for Green Card",
+        "Victory Points for Green Card"
+      ]
+    },
+    "B":{
+      "resource": "Ore",
+      "theme": [
+        "Force Others Discard Leader Build Free",
+        "3-Point Victory Discard",
+        "Victory Points for Red Card",
+        "Swap Equal Cost Card",
+        "Coin on Card Victory Point"
+      ]
+    }
+  },
+  "Dominion": {
+    "Requirements":[
+      "Dominion Card"
+      ],
+    "A":{
+      "resource": "Money,Defeat",
+      "theme": [
+        "Victory Points",
+        "3 Unused Resources Defeat Shield/Coin"
+      ]
+    },
+    "B":{
+      "resource": "Money,Defeat",
+      "theme": [
+        "Anti-Victory Points",
+        "3 Unused Resources for Coin",
+        "Purple Build Discard Build Free",
+        "Victory Points"
+      ]
+    }
+  },
+  "DoppelWonder": {
+    "Requirements":[
+      "Teams Only"
+      ],
+    "A":{
+      "resource": "Copy Neighbour",
+      "theme": [
+        "Copy Neighbour"
+      ]
+    },
+    "B":{
+      "resource": "Copy Neighbour",
+      "theme": [
+        "Copy Neighbour"
+      ]
+    }
+  },
+  "El Dorado": {
+    "A":{
+      "resource": "Money",
+      "theme": [
+        "Money",
+        "Anti-Victory Point on Blue Card",
+        "Coin for Yellow Card",
+        "Victory Points for Coin"
+      ]
+    },
+    "B":{
+      "resource": "Others Coin when Build",
+      "theme": [
+        "Coin on Chain",
+        "Money with Neighbour",
+        "Money"
+      ]
+    }
+  },
+  "Helvetia": {
+    "Requirements":[
+      "No Teams"
+      ],
+    "A":{
+      "resource": "Papyrus,Diplomacy",
+      "theme": [
+        "Victory Points",
+        "Victory Points for Shields"
+      ]
+    },
+    "B":{
+      "resource": "Papyrus,Diplomacy",
+      "theme": [
+        "Coin for Red Card",
+        "Victory Points for Shields",
+        "Money",
+        "Victory Points for Coin"
+      ]
+    }
+  },
+  "Lhasa": {
+    "A":{
+      "resource": "Papyrus",
+      "theme": [
+        "Victory Points",
+        "Victory Points for Science Set"
+      ]
+    },
+    "B":{
+      "resource": "Papyrus",
+      "theme": [
+        "Discard Defeat on Chain",
+        "Victory Points",
+        "Convert Science Symbol"
+      ]
+    }
+  },
+  "Nomades": {
+    "Requirements":[
+      "4 Players or more"
+      ],
+    "A":{
+      "resource": "Money",
+      "theme": [
+        "Victory Points",
+        "Reposition Civ"
+      ]
+    },
+    "B":{
+      "resource": "Money",
+      "theme": [
+        "Victory Points",
+        "Reposition Civ"
+      ]
+    }
+  },
+  "Persepolis": {
+    "Requirements":[
+      "Cities",
+	  "Extra City Cards"
+      ],
+    "A":{
+      "resource": "Discount to Bank",
+      "theme": [
+        "Victory Points",
+        "Money",
+        "Black Card Discount"
+      ]
+    },
+    "B":{
+      "resource": "Discount to Bank",
+      "theme": [
+        "Draw Black Card Build Free"
+      ]
+    }
+  },
+  "R'Lyeh": {
+    "Requirements":[
+      "Cities"
+      ],
+    "A":{
+      "resource": "Glass",
+      "theme": [
+        "Victory Points",
+        "Coins All",
+        "Debt",
+        "Move Ship Choice"
+      ]
+    },
+    "B":{
+      "resource": "Glass",
+      "theme": [
+        "Debt",
+        "Victory Points for Blue Card",
+        "Build Age Free",
+        "Money",
+        "Victory Points"
+      ]
+    }
+  },
+  "Rapa Nui": {
+    "Requirements":[
+      "Teams Only"
+      ],
+    "A":{
+      "resource": "Papyrus",
+      "theme": [
+        "Victory Points",
+        "Wonder Card to Teammate"
+      ]
+    },
+    "B":{
+      "resource": "Papyrus",
+      "theme": [
+        "Victory Points",
+        "Wonder Card to Teammate"
+      ]
+    }
+  },
+  "Roll Through The Ages": {
+    "Requirements":[
+      "Dice"
+      ],
+    "A":{
+      "resource": "Dice Roll Coins",
+      "theme": [
+        "Victory Points",
+        "Dice Roll Coins",
+        "Dice Roll Victory Points"
+      ]
+    },
+    "B":{
+      "resource": "Dice Roll Coins",
+      "theme": [
+        "Shield for Wonder Built",
+        "Brown Resource Choice",
+        "Dice Roll Coins",
+        "Dice Roll Victory Points"
+      ]
+    }
+  },
+  "Sparta": {
+    "A":{
+      "resource": "Half Shield",
+      "theme": [
+        "Double Built Resource",
+        "Victory Points"
+      ]
+    },
+    "B":{
+      "resource": "Half Shield",
+      "theme": [
+        "Defeat Self for Chaining",
+        "Victory Point for Victory Token",
+        "Discard Defeat for Victory Token"
+      ]
+    }
+  },
+  "Temporal Paradox": {
+    "A":{
+      "resource": "Defeat Token",
+      "theme": [
+        "Draw New Civ A Side"
+      ]
+    },
+    "B":{
+      "resource": "Defeat Token",
+      "theme": [
+        "Draw New Civ A/B"
+      ]
+    }
+  },
+  "Uruk": {
+    "A":{
+      "resource": "Fabric",
+      "theme": [
+        "Victory Points",
+        "Coins All"
+      ]
+    },
+    "B":{
+      "resource": "Fabric",
+      "theme": [
+        "Victory Points",
+        "Coins All",
+        "Discard Defeat All",
+        "Use Last Card All"
+      ]
+    }
+  },
+  "Venezia": {
+    "Requirements":[
+      "No Wonder Copy Neighbor"
+      ],
+    "A":{
+      "resource": "Fabric",
+      "theme": [
+        "Victory Points",
+        "Copy Second Age Card Neighbor"
+      ]
+    },
+    "B":{
+      "resource": "Fabric",
+      "theme": [
+        "Copy Wonder or Yellow Card Neighbor",
+        "Copy Red or Green Card Neighbor",
+        "Copy Blue or Purple Card Neighbor"
+      ]
+    }
+  },
+  "Yamato": {
+    "A":{
+      "resource": "Wood",
+      "theme": [
+        "Victory Points",
+        "Wonder Card Benefit Except Blue"
+      ]
+    },
+    "B":{
+      "resource": "Wood",
+      "theme": [
+        "Wonder Card Benefit Except Blue"
+      ]
+    }
+  }
+}

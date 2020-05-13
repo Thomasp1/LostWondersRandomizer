@@ -1,0 +1,682 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		88434D06246C2AB30027A867 /* PlayersAndCivs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88434D05246C2AB30027A867 /* PlayersAndCivs.swift */; };
+		8844C3E0246AD446003C0002 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8844C3DF246AD446003C0002 /* StringExtension.swift */; };
+		8844C3E2246ADFFC003C0002 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8844C3E1246ADFFC003C0002 /* SettingsView.swift */; };
+		8844C3EC246B17A4003C0002 /* OriginalWonders.json in Resources */ = {isa = PBXBuildFile; fileRef = 8844C3E4246B17A4003C0002 /* OriginalWonders.json */; };
+		8844C3ED246B17A4003C0002 /* LostWonders.json in Resources */ = {isa = PBXBuildFile; fileRef = 8844C3E5246B17A4003C0002 /* LostWonders.json */; };
+		8844C3EE246B17A4003C0002 /* CitiesWonders.json in Resources */ = {isa = PBXBuildFile; fileRef = 8844C3E6246B17A4003C0002 /* CitiesWonders.json */; };
+		8844C3EF246B17A4003C0002 /* CatanWonder.json in Resources */ = {isa = PBXBuildFile; fileRef = 8844C3E7246B17A4003C0002 /* CatanWonder.json */; };
+		8844C3F0246B17A4003C0002 /* WonderPackWonders.json in Resources */ = {isa = PBXBuildFile; fileRef = 8844C3E8246B17A4003C0002 /* WonderPackWonders.json */; };
+		8844C3F1246B17A4003C0002 /* LostWonders2.json in Resources */ = {isa = PBXBuildFile; fileRef = 8844C3E9246B17A4003C0002 /* LostWonders2.json */; };
+		8844C3F2246B17A4003C0002 /* LeadersWonder.json in Resources */ = {isa = PBXBuildFile; fileRef = 8844C3EA246B17A4003C0002 /* LeadersWonder.json */; };
+		8844C3F3246B17A4003C0002 /* ArmadaWonder.json in Resources */ = {isa = PBXBuildFile; fileRef = 8844C3EB246B17A4003C0002 /* ArmadaWonder.json */; };
+		8844C3F5246B1BC2003C0002 /* BundleExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8844C3F4246B1BC2003C0002 /* BundleExtension.swift */; };
+		8844C3F7246B2B0D003C0002 /* Generator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8844C3F6246B2B0D003C0002 /* Generator.swift */; };
+		8844C3F9246B2C97003C0002 /* Wonder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8844C3F8246B2C97003C0002 /* Wonder.swift */; };
+		8869EF5E2464193E00054A25 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8869EF5D2464193E00054A25 /* AppDelegate.swift */; };
+		8869EF602464193E00054A25 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8869EF5F2464193E00054A25 /* SceneDelegate.swift */; };
+		8869EF632464193E00054A25 /* LostWondersRand.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8869EF612464193E00054A25 /* LostWondersRand.xcdatamodeld */; };
+		8869EF652464193E00054A25 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8869EF642464193E00054A25 /* ContentView.swift */; };
+		8869EF672464193F00054A25 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8869EF662464193F00054A25 /* Assets.xcassets */; };
+		8869EF6A2464193F00054A25 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8869EF692464193F00054A25 /* Preview Assets.xcassets */; };
+		8869EF6D2464193F00054A25 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8869EF6B2464193F00054A25 /* LaunchScreen.storyboard */; };
+		8869EF782464193F00054A25 /* LostWondersRandTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8869EF772464193F00054A25 /* LostWondersRandTests.swift */; };
+		8869EF832464193F00054A25 /* LostWondersRandUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8869EF822464193F00054A25 /* LostWondersRandUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		8869EF742464193F00054A25 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8869EF522464193E00054A25 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8869EF592464193E00054A25;
+			remoteInfo = LostWondersRand;
+		};
+		8869EF7F2464193F00054A25 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8869EF522464193E00054A25 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8869EF592464193E00054A25;
+			remoteInfo = LostWondersRand;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		88434D05246C2AB30027A867 /* PlayersAndCivs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayersAndCivs.swift; sourceTree = "<group>"; };
+		8844C3DF246AD446003C0002 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
+		8844C3E1246ADFFC003C0002 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		8844C3E4246B17A4003C0002 /* OriginalWonders.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = OriginalWonders.json; sourceTree = "<group>"; };
+		8844C3E5246B17A4003C0002 /* LostWonders.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = LostWonders.json; sourceTree = "<group>"; };
+		8844C3E6246B17A4003C0002 /* CitiesWonders.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = CitiesWonders.json; sourceTree = "<group>"; };
+		8844C3E7246B17A4003C0002 /* CatanWonder.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = CatanWonder.json; sourceTree = "<group>"; };
+		8844C3E8246B17A4003C0002 /* WonderPackWonders.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = WonderPackWonders.json; sourceTree = "<group>"; };
+		8844C3E9246B17A4003C0002 /* LostWonders2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = LostWonders2.json; sourceTree = "<group>"; };
+		8844C3EA246B17A4003C0002 /* LeadersWonder.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = LeadersWonder.json; sourceTree = "<group>"; };
+		8844C3EB246B17A4003C0002 /* ArmadaWonder.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ArmadaWonder.json; sourceTree = "<group>"; };
+		8844C3F4246B1BC2003C0002 /* BundleExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BundleExtension.swift; sourceTree = "<group>"; };
+		8844C3F6246B2B0D003C0002 /* Generator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Generator.swift; sourceTree = "<group>"; };
+		8844C3F8246B2C97003C0002 /* Wonder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wonder.swift; sourceTree = "<group>"; };
+		8869EF5A2464193E00054A25 /* LostWondersRand.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LostWondersRand.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8869EF5D2464193E00054A25 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		8869EF5F2464193E00054A25 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		8869EF622464193E00054A25 /* LostWondersRand.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = LostWondersRand.xcdatamodel; sourceTree = "<group>"; };
+		8869EF642464193E00054A25 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		8869EF662464193F00054A25 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		8869EF692464193F00054A25 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		8869EF6C2464193F00054A25 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		8869EF6E2464193F00054A25 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8869EF732464193F00054A25 /* LostWondersRandTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LostWondersRandTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		8869EF772464193F00054A25 /* LostWondersRandTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LostWondersRandTests.swift; sourceTree = "<group>"; };
+		8869EF792464193F00054A25 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8869EF7E2464193F00054A25 /* LostWondersRandUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LostWondersRandUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		8869EF822464193F00054A25 /* LostWondersRandUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LostWondersRandUITests.swift; sourceTree = "<group>"; };
+		8869EF842464193F00054A25 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8869EF572464193E00054A25 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8869EF702464193F00054A25 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8869EF7B2464193F00054A25 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		8844C3DE246AD42E003C0002 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				8844C3DF246AD446003C0002 /* StringExtension.swift */,
+				8844C3F4246B1BC2003C0002 /* BundleExtension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		8844C3E3246B177A003C0002 /* JSON */ = {
+			isa = PBXGroup;
+			children = (
+				8844C3EB246B17A4003C0002 /* ArmadaWonder.json */,
+				8844C3E7246B17A4003C0002 /* CatanWonder.json */,
+				8844C3E6246B17A4003C0002 /* CitiesWonders.json */,
+				8844C3EA246B17A4003C0002 /* LeadersWonder.json */,
+				8844C3E5246B17A4003C0002 /* LostWonders.json */,
+				8844C3E9246B17A4003C0002 /* LostWonders2.json */,
+				8844C3E4246B17A4003C0002 /* OriginalWonders.json */,
+				8844C3E8246B17A4003C0002 /* WonderPackWonders.json */,
+			);
+			path = JSON;
+			sourceTree = "<group>";
+		};
+		8869EF512464193E00054A25 = {
+			isa = PBXGroup;
+			children = (
+				8869EF5C2464193E00054A25 /* LostWondersRand */,
+				8869EF762464193F00054A25 /* LostWondersRandTests */,
+				8869EF812464193F00054A25 /* LostWondersRandUITests */,
+				8869EF5B2464193E00054A25 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		8869EF5B2464193E00054A25 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8869EF5A2464193E00054A25 /* LostWondersRand.app */,
+				8869EF732464193F00054A25 /* LostWondersRandTests.xctest */,
+				8869EF7E2464193F00054A25 /* LostWondersRandUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		8869EF5C2464193E00054A25 /* LostWondersRand */ = {
+			isa = PBXGroup;
+			children = (
+				8844C3E3246B177A003C0002 /* JSON */,
+				8844C3DE246AD42E003C0002 /* Extensions */,
+				8869EF5D2464193E00054A25 /* AppDelegate.swift */,
+				8869EF5F2464193E00054A25 /* SceneDelegate.swift */,
+				8869EF642464193E00054A25 /* ContentView.swift */,
+				8869EF662464193F00054A25 /* Assets.xcassets */,
+				8869EF6B2464193F00054A25 /* LaunchScreen.storyboard */,
+				8869EF6E2464193F00054A25 /* Info.plist */,
+				8869EF612464193E00054A25 /* LostWondersRand.xcdatamodeld */,
+				8869EF682464193F00054A25 /* Preview Content */,
+				8844C3E1246ADFFC003C0002 /* SettingsView.swift */,
+				8844C3F6246B2B0D003C0002 /* Generator.swift */,
+				8844C3F8246B2C97003C0002 /* Wonder.swift */,
+				88434D05246C2AB30027A867 /* PlayersAndCivs.swift */,
+			);
+			path = LostWondersRand;
+			sourceTree = "<group>";
+		};
+		8869EF682464193F00054A25 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				8869EF692464193F00054A25 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		8869EF762464193F00054A25 /* LostWondersRandTests */ = {
+			isa = PBXGroup;
+			children = (
+				8869EF772464193F00054A25 /* LostWondersRandTests.swift */,
+				8869EF792464193F00054A25 /* Info.plist */,
+			);
+			path = LostWondersRandTests;
+			sourceTree = "<group>";
+		};
+		8869EF812464193F00054A25 /* LostWondersRandUITests */ = {
+			isa = PBXGroup;
+			children = (
+				8869EF822464193F00054A25 /* LostWondersRandUITests.swift */,
+				8869EF842464193F00054A25 /* Info.plist */,
+			);
+			path = LostWondersRandUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8869EF592464193E00054A25 /* LostWondersRand */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8869EF872464193F00054A25 /* Build configuration list for PBXNativeTarget "LostWondersRand" */;
+			buildPhases = (
+				8869EF562464193E00054A25 /* Sources */,
+				8869EF572464193E00054A25 /* Frameworks */,
+				8869EF582464193E00054A25 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = LostWondersRand;
+			productName = LostWondersRand;
+			productReference = 8869EF5A2464193E00054A25 /* LostWondersRand.app */;
+			productType = "com.apple.product-type.application";
+		};
+		8869EF722464193F00054A25 /* LostWondersRandTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8869EF8A2464193F00054A25 /* Build configuration list for PBXNativeTarget "LostWondersRandTests" */;
+			buildPhases = (
+				8869EF6F2464193F00054A25 /* Sources */,
+				8869EF702464193F00054A25 /* Frameworks */,
+				8869EF712464193F00054A25 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8869EF752464193F00054A25 /* PBXTargetDependency */,
+			);
+			name = LostWondersRandTests;
+			productName = LostWondersRandTests;
+			productReference = 8869EF732464193F00054A25 /* LostWondersRandTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		8869EF7D2464193F00054A25 /* LostWondersRandUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8869EF8D2464193F00054A25 /* Build configuration list for PBXNativeTarget "LostWondersRandUITests" */;
+			buildPhases = (
+				8869EF7A2464193F00054A25 /* Sources */,
+				8869EF7B2464193F00054A25 /* Frameworks */,
+				8869EF7C2464193F00054A25 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8869EF802464193F00054A25 /* PBXTargetDependency */,
+			);
+			name = LostWondersRandUITests;
+			productName = LostWondersRandUITests;
+			productReference = 8869EF7E2464193F00054A25 /* LostWondersRandUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		8869EF522464193E00054A25 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1140;
+				LastUpgradeCheck = 1140;
+				ORGANIZATIONNAME = ThomasPiechula;
+				TargetAttributes = {
+					8869EF592464193E00054A25 = {
+						CreatedOnToolsVersion = 11.4;
+					};
+					8869EF722464193F00054A25 = {
+						CreatedOnToolsVersion = 11.4;
+						TestTargetID = 8869EF592464193E00054A25;
+					};
+					8869EF7D2464193F00054A25 = {
+						CreatedOnToolsVersion = 11.4;
+						TestTargetID = 8869EF592464193E00054A25;
+					};
+				};
+			};
+			buildConfigurationList = 8869EF552464193E00054A25 /* Build configuration list for PBXProject "LostWondersRand" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 8869EF512464193E00054A25;
+			productRefGroup = 8869EF5B2464193E00054A25 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8869EF592464193E00054A25 /* LostWondersRand */,
+				8869EF722464193F00054A25 /* LostWondersRandTests */,
+				8869EF7D2464193F00054A25 /* LostWondersRandUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8869EF582464193E00054A25 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8869EF6D2464193F00054A25 /* LaunchScreen.storyboard in Resources */,
+				8869EF6A2464193F00054A25 /* Preview Assets.xcassets in Resources */,
+				8844C3F3246B17A4003C0002 /* ArmadaWonder.json in Resources */,
+				8844C3EF246B17A4003C0002 /* CatanWonder.json in Resources */,
+				8844C3F1246B17A4003C0002 /* LostWonders2.json in Resources */,
+				8869EF672464193F00054A25 /* Assets.xcassets in Resources */,
+				8844C3F2246B17A4003C0002 /* LeadersWonder.json in Resources */,
+				8844C3EE246B17A4003C0002 /* CitiesWonders.json in Resources */,
+				8844C3EC246B17A4003C0002 /* OriginalWonders.json in Resources */,
+				8844C3F0246B17A4003C0002 /* WonderPackWonders.json in Resources */,
+				8844C3ED246B17A4003C0002 /* LostWonders.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8869EF712464193F00054A25 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8869EF7C2464193F00054A25 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8869EF562464193E00054A25 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8844C3E2246ADFFC003C0002 /* SettingsView.swift in Sources */,
+				88434D06246C2AB30027A867 /* PlayersAndCivs.swift in Sources */,
+				8869EF5E2464193E00054A25 /* AppDelegate.swift in Sources */,
+				8844C3F9246B2C97003C0002 /* Wonder.swift in Sources */,
+				8869EF602464193E00054A25 /* SceneDelegate.swift in Sources */,
+				8844C3E0246AD446003C0002 /* StringExtension.swift in Sources */,
+				8869EF652464193E00054A25 /* ContentView.swift in Sources */,
+				8844C3F7246B2B0D003C0002 /* Generator.swift in Sources */,
+				8869EF632464193E00054A25 /* LostWondersRand.xcdatamodeld in Sources */,
+				8844C3F5246B1BC2003C0002 /* BundleExtension.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8869EF6F2464193F00054A25 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8869EF782464193F00054A25 /* LostWondersRandTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8869EF7A2464193F00054A25 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8869EF832464193F00054A25 /* LostWondersRandUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		8869EF752464193F00054A25 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8869EF592464193E00054A25 /* LostWondersRand */;
+			targetProxy = 8869EF742464193F00054A25 /* PBXContainerItemProxy */;
+		};
+		8869EF802464193F00054A25 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8869EF592464193E00054A25 /* LostWondersRand */;
+			targetProxy = 8869EF7F2464193F00054A25 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		8869EF6B2464193F00054A25 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8869EF6C2464193F00054A25 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		8869EF852464193F00054A25 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		8869EF862464193F00054A25 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		8869EF882464193F00054A25 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"LostWondersRand/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = LostWondersRand/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = ThomasPiechula.LostWondersRand;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		8869EF892464193F00054A25 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"LostWondersRand/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = LostWondersRand/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = ThomasPiechula.LostWondersRand;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		8869EF8B2464193F00054A25 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = LostWondersRandTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = ThomasPiechula.LostWondersRandTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LostWondersRand.app/LostWondersRand";
+			};
+			name = Debug;
+		};
+		8869EF8C2464193F00054A25 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = LostWondersRandTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = ThomasPiechula.LostWondersRandTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LostWondersRand.app/LostWondersRand";
+			};
+			name = Release;
+		};
+		8869EF8E2464193F00054A25 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = LostWondersRandUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = ThomasPiechula.LostWondersRandUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = LostWondersRand;
+			};
+			name = Debug;
+		};
+		8869EF8F2464193F00054A25 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = LostWondersRandUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = ThomasPiechula.LostWondersRandUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = LostWondersRand;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		8869EF552464193E00054A25 /* Build configuration list for PBXProject "LostWondersRand" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8869EF852464193F00054A25 /* Debug */,
+				8869EF862464193F00054A25 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8869EF872464193F00054A25 /* Build configuration list for PBXNativeTarget "LostWondersRand" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8869EF882464193F00054A25 /* Debug */,
+				8869EF892464193F00054A25 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8869EF8A2464193F00054A25 /* Build configuration list for PBXNativeTarget "LostWondersRandTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8869EF8B2464193F00054A25 /* Debug */,
+				8869EF8C2464193F00054A25 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8869EF8D2464193F00054A25 /* Build configuration list for PBXNativeTarget "LostWondersRandUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8869EF8E2464193F00054A25 /* Debug */,
+				8869EF8F2464193F00054A25 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		8869EF612464193E00054A25 /* LostWondersRand.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				8869EF622464193E00054A25 /* LostWondersRand.xcdatamodel */,
+			);
+			currentVersion = 8869EF622464193E00054A25 /* LostWondersRand.xcdatamodel */;
+			path = LostWondersRand.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 8869EF522464193E00054A25 /* Project object */;
+}
