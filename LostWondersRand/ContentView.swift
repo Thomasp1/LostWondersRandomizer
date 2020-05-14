@@ -9,21 +9,20 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var playerNames = ["","","","","","","",""]
-    @State private var chosenCivs = ["","","","","","","",""]
+    @EnvironmentObject var playersAndCivs: PlayersAndCivs
     var body: some View {
         NavigationView {
             ScrollView {
                 ForEach(0..<8) { playerNum in
                     HStack {
-                        TextField("Player \(playerNum+1)", text: self.$playerNames[playerNum])
-                        Text(self.chosenCivs[playerNum])
+                        TextField("Player \(playerNum+1)", text: self.$playersAndCivs.players[playerNum])
+                        Text(self.playersAndCivs.civs[playerNum])
                     }
                 .padding()
                 }
                 Spacer().frame(height: 100)
                 Button("GENERATE") {
-                    self.chosenCivs = Generator.generate(playerNum: 5)
+                    self.playersAndCivs.civs = Generator.generate(playerNum: 5)
                 }
                 .padding()
                 .font(.headline)
@@ -41,7 +40,8 @@ struct ContentView: View {
 }
 
 struct ContentView_Previews: PreviewProvider {
+    static let playersAndCivs = PlayersAndCivs()
     static var previews: some View {
-        ContentView()
+        ContentView().environmentObject(playersAndCivs)
     }
 }
