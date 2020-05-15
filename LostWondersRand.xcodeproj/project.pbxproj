@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8843449A246DC49000484D86 /* SetExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88434499246DC49000484D86 /* SetExtension.swift */; };
 		88434D06246C2AB30027A867 /* PlayersAndCivs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88434D05246C2AB30027A867 /* PlayersAndCivs.swift */; };
 		8844C3E0246AD446003C0002 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8844C3DF246AD446003C0002 /* StringExtension.swift */; };
 		8844C3E2246ADFFC003C0002 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8844C3E1246ADFFC003C0002 /* SettingsView.swift */; };
@@ -50,6 +51,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		88434499246DC49000484D86 /* SetExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetExtension.swift; sourceTree = "<group>"; };
 		88434D05246C2AB30027A867 /* PlayersAndCivs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayersAndCivs.swift; sourceTree = "<group>"; };
 		8844C3DF246AD446003C0002 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		8844C3E1246ADFFC003C0002 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
@@ -111,6 +113,7 @@
 			children = (
 				8844C3DF246AD446003C0002 /* StringExtension.swift */,
 				8844C3F4246B1BC2003C0002 /* BundleExtension.swift */,
+				88434499246DC49000484D86 /* SetExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -345,6 +348,7 @@
 				8869EF652464193E00054A25 /* ContentView.swift in Sources */,
 				8844C3F7246B2B0D003C0002 /* Generator.swift in Sources */,
 				8869EF632464193E00054A25 /* LostWondersRand.xcdatamodeld in Sources */,
+				8843449A246DC49000484D86 /* SetExtension.swift in Sources */,
 				8844C3F5246B1BC2003C0002 /* BundleExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

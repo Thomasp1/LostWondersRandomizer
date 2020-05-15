@@ -42,12 +42,34 @@ enum WonderBundle {
 
 class Generator {
     
-    static func generate(playerNum: Int) -> [String] {
-        var chosenCivs = [String](repeating: "", count: 8)
-        let randWonderKey = WonderBundle.original.getDict().keys.randomElement() ?? "No Wonder"
-        chosenCivs[0] = randWonderKey
-        chosenCivs = Array(WonderBundle.lostWonders.getDict().keys.shuffled().prefix(8))
+    static func generate(playerNum: Int, bundles: [WonderBundle], teams: Bool) -> [String] {
         
-        return chosenCivs
+        var chosenWonders = [String:Wonder]()
+        
+        //add enabled bundles
+        bundles.forEach {
+            for key in $0.getDict().keys {
+                chosenWonders[key] = $0.getDict()[key]
+            }
+        }
+        
+        //filter teams
+        if teams {
+            chosenWonders = chosenWonders.filter {
+                if let req = $0.value.requirements {
+                    return !req.contains("No Teams")
+                } else { return true }
+            }
+        } else {
+            chosenWonders = chosenWonders.filter {
+                if let req = $0.value.requirements {
+                    return !req.contains("Teams Only")
+                } else { return true }
+            }
+        }
+        
+        
+        let chosenWondersString: [String] = Array(chosenWonders.keys)
+        return chosenWondersString
     }
 }

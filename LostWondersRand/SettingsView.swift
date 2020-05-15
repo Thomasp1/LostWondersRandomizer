@@ -9,38 +9,39 @@
 import SwiftUI
 
 struct SettingsView: View {
+    @EnvironmentObject var playersAndCivs: PlayersAndCivs
     @State private var toggleTest: Bool = false
     var body: some View {
         Form {
             Section {
-                Toggle(isOn: $toggleTest.animation()) {
+                Toggle(isOn: $playersAndCivs.teams.animation()) {
                     Text("Teams")
                 }
             }
             Section {
-                Toggle(isOn: $toggleTest.animation()) {
+                Toggle(isOn: $playersAndCivs.cities.animation()) {
                     Text("Cities Wonders")
                 }
-                Toggle(isOn: $toggleTest.animation()) {
+                Toggle(isOn: $playersAndCivs.leaders.animation()) {
                     Text("Leaders Wonders")
                 }
-                Toggle(isOn: $toggleTest.animation()) {
+                Toggle(isOn: $playersAndCivs.wonderpack.animation()) {
                     Text("Wonderpack Wonders")
                 }
             }
             Section {
-                Toggle(isOn: $toggleTest.animation()) {
+                Toggle(isOn: $playersAndCivs.catan.animation()) {
                     Text("Catan Wonder")
                 }
-                Toggle(isOn: $toggleTest.animation()) {
+                Toggle(isOn: $playersAndCivs.armada.animation()) {
                     Text("Armada Wonder")
                 }
             }
             Section {
-                Toggle(isOn: $toggleTest.animation()) {
+                Toggle(isOn: $playersAndCivs.lostWonders.animation()) {
                     Text("Lost Wonders")
                 }
-                Toggle(isOn: $toggleTest.animation()) {
+                Toggle(isOn: $playersAndCivs.lostWonders2.animation()) {
                     Text("Lost Wonders 2")
                 }
             }
@@ -50,7 +51,8 @@ struct SettingsView: View {
 }
 
 struct SettingsView_Previews: PreviewProvider {
+    static let playersAndCivs = PlayersAndCivs()
     static var previews: some View {
-        SettingsView()
+        SettingsView().environmentObject(playersAndCivs)
     }
 }

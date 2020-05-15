@@ -14,21 +14,24 @@ struct ContentView: View {
         NavigationView {
             ScrollView {
                 ForEach(0..<8) { playerNum in
-                    HStack {
+                    HStack(alignment: .center, spacing: 4) {
                         TextField("Player \(playerNum+1)", text: self.$playersAndCivs.players[playerNum])
                         Text(self.playersAndCivs.civs[playerNum])
+                        .lineLimit(1)
+                        .fixedSize(horizontal: false, vertical: true)
                     }
-                .padding()
+                .padding(12)
                 }
-                Spacer().frame(height: 100)
+                Spacer()
                 Button("GENERATE") {
-                    self.playersAndCivs.civs = Generator.generate(playerNum: 5)
+                    self.playersAndCivs.civs = Generator.generate(playerNum: 5, bundles: [WonderBundle.original,WonderBundle.catan], teams: false)
                 }
                 .padding()
                 .font(.headline)
                 .background(Color.purple)
                 .foregroundColor(Color.white)
                 .clipShape(Capsule(style: .continuous) )
+                Spacer().frame(height: 12)
 
 
             }
