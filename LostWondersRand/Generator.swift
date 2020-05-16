@@ -54,7 +54,7 @@ class Generator {
             }
         }
         
-        //filter teams
+        //filter wonders that require/cannot play with teams
         if teams {
             chosenWonders = chosenWonders.filter {
                 if let req = $0.value.requirements {
@@ -69,8 +69,29 @@ class Generator {
             }
         }
         
+        //player amount requirements
+        if playerNum < 4 {
+            chosenWonders = chosenWonders.filter { if let req = $0.value.requirements { return !req.contains("4 Players or more") } else { return true }}
+        }
+        if playerNum < 5 {
+            chosenWonders = chosenWonders.filter { if let req = $0.value.requirements { return !req.contains("5 Players or more") } else { return true }}
+        }
+        
+        //expansion pack requirements
+        if !bundles.contains(WonderBundle.cities) {
+            chosenWonders = chosenWonders.filter { if let req = $0.value.requirements { return !req.contains("Cities") } else { return true }}
+        }
+        if !bundles.contains(WonderBundle.leaders) {
+            chosenWonders = chosenWonders.filter { if let req = $0.value.requirements { return !req.contains("Leaders") } else { return true }}
+        }
+        if !bundles.contains(WonderBundle.armada) {
+            chosenWonders = chosenWonders.filter { if let req = $0.value.requirements { return !req.contains("Armada") } else { return true }}
+        }
+        
         
         var chosenWondersString: [String] = Array(chosenWonders.keys)
+        
+        //dirty hack, will remove later
         if chosenWondersString.count < 8 {
             chosenWondersString.append("")
         }
