@@ -42,12 +42,59 @@ enum WonderBundle {
 
 class Generator {
     
-    static func generate(playerNum: Int) -> [String] {
-        var chosenCivs = [String](repeating: "", count: 8)
-        let randWonderKey = WonderBundle.original.getDict().keys.randomElement() ?? "No Wonder"
-        chosenCivs[0] = randWonderKey
-        chosenCivs = Array(WonderBundle.lostWonders.getDict().keys.shuffled().prefix(8))
+    static func generate(playerNum: Int, bundles: Set<WonderBundle>, teams: Bool) -> [String] {
         
-        return chosenCivs
+        var chosenWonders = [String:Wonder]()
+        debugPrint(bundles)
+        
+        //add enabled bundles
+        bundles.forEach {
+            for key in $0.getDict().keys {
+                chosenWonders[key] = $0.getDict()[key]
+            }
+        }
+        
+        //filter wonders that require/cannot play with teams
+        if teams {
+            chosenWonders = chosenWonders.filter {
+                if let req = $0.value.requirements {
+                    return !req.contains("No Teams")
+                } else { return true }
+            }
+        } else {
+            chosenWonders = chosenWonders.filter {
+                if let req = $0.value.requirements {
+                    return !req.contains("Teams Only")
+                } else { return true }
+            }
+        }
+        
+        //player amount requirements
+        if playerNum < 4 {
+            chosenWonders = chosenWonders.filter { if let req = $0.value.requirements { return !req.contains("4 Players or more") } else { return true }}
+        }
+        if playerNum < 5 {
+            chosenWonders = chosenWonders.filter { if let req = $0.value.requirements { return !req.contains("5 Players or more") } else { return true }}
+        }
+        
+        //expansion pack requirements
+        if !bundles.contains(WonderBundle.cities) {
+            chosenWonders = chosenWonders.filter { if let req = $0.value.requirements { return !req.contains("Cities") } else { return true }}
+        }
+        if !bundles.contains(WonderBundle.leaders) {
+            chosenWonders = chosenWonders.filter { if let req = $0.value.requirements { return !req.contains("Leaders") } else { return true }}
+        }
+        if !bundles.contains(WonderBundle.armada) {
+            chosenWonders = chosenWonders.filter { if let req = $0.value.requirements { return !req.contains("Armada") } else { return true }}
+        }
+        
+        
+        var chosenWondersString: [String] = Array(chosenWonders.keys)
+        
+        //dirty hack, will remove later
+        if chosenWondersString.count < 8 {
+            chosenWondersString.append("")
+        }
+        return chosenWondersString
     }
 }

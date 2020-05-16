@@ -9,27 +9,30 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var playerNames = ["","","","","","","",""]
-    @State private var chosenCivs = ["","","","","","","",""]
+    @EnvironmentObject var playersAndCivs: PlayersAndCivs
     var body: some View {
         NavigationView {
             ScrollView {
                 ForEach(0..<8) { playerNum in
-                    HStack {
-                        TextField("Player \(playerNum+1)", text: self.$playerNames[playerNum])
-                        Text(self.chosenCivs[playerNum])
+                    HStack(alignment: .center, spacing: 4) {
+                        TextField("Player \(playerNum+1)", text: self.$playersAndCivs.players[playerNum])
+                        Text(self.playersAndCivs.civs[playerNum])
+                        .lineLimit(1)
+                        .fixedSize(horizontal: false, vertical: true)
                     }
-                .padding()
+                .padding(12)
                 }
-                Spacer().frame(height: 100)
+                Spacer()
                 Button("GENERATE") {
-                    self.chosenCivs = Generator.generate(playerNum: 5)
+                    self.playersAndCivs.civs = Generator.generate(playerNum: 5, bundles:
+                        self.playersAndCivs.wonderBundles, teams: self.playersAndCivs.teams)
                 }
                 .padding()
                 .font(.headline)
                 .background(Color.purple)
                 .foregroundColor(Color.white)
                 .clipShape(Capsule(style: .continuous) )
+                Spacer().frame(height: 12)
 
 
             }
@@ -41,7 +44,8 @@ struct ContentView: View {
 }
 
 struct ContentView_Previews: PreviewProvider {
+    static let playersAndCivs = PlayersAndCivs()
     static var previews: some View {
-        ContentView()
+        ContentView().environmentObject(playersAndCivs)
     }
 }
