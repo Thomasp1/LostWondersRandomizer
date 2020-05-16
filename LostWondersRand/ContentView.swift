@@ -24,7 +24,8 @@ struct ContentView: View {
                 }
                 Spacer()
                 Button("GENERATE") {
-                    self.playersAndCivs.civs = Generator.generate(playerNum: 5, bundles: [WonderBundle.original,WonderBundle.catan], teams: false)
+                    self.playersAndCivs.civs = Generator.generate(playerNum: 5, bundles:
+                        self.playersAndCivs.wonderBundles, teams: self.playersAndCivs.teams)
                 }
                 .padding()
                 .font(.headline)

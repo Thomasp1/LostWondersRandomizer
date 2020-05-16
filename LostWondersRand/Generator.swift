@@ -42,9 +42,10 @@ enum WonderBundle {
 
 class Generator {
     
-    static func generate(playerNum: Int, bundles: [WonderBundle], teams: Bool) -> [String] {
+    static func generate(playerNum: Int, bundles: Set<WonderBundle>, teams: Bool) -> [String] {
         
         var chosenWonders = [String:Wonder]()
+        debugPrint(bundles)
         
         //add enabled bundles
         bundles.forEach {
@@ -69,7 +70,10 @@ class Generator {
         }
         
         
-        let chosenWondersString: [String] = Array(chosenWonders.keys)
+        var chosenWondersString: [String] = Array(chosenWonders.keys)
+        if chosenWondersString.count < 8 {
+            chosenWondersString.append("")
+        }
         return chosenWondersString
     }
 }
