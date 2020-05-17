@@ -86,24 +86,25 @@ class Generator {
         }
         
         //select wonders
-        for i in 0..<playerNum {
+        for _ in 0..<playerNum {
             guard let selectedWonder = combinedWonders.randomElement() else { break }
             
             switch selectedWonder {
             case let element where element.key == "Nomades":
                 finalWondersChosen[selectedWonder.key] = selectedWonder.value
                 combinedWonders.removeValue(forKey: selectedWonder.key)
+                
+                //remove wonder copying wonders
+                combinedWonders = combinedWonders.filter { !(self.wondercopyWonders.contains($0.key)) }
             default:
                 finalWondersChosen[selectedWonder.key] = selectedWonder.value
                 combinedWonders.removeValue(forKey: selectedWonder.key)
             }
-            debugPrint("combinedWonders: \(combinedWonders.count)")
-            debugPrint("finalWondersChosen: \(finalWondersChosen.count)")
         }
         
         
-        var combinedWondersString: [String] = Array(combinedWonders.keys)
         var finalWondersString: [String] = Array(finalWondersChosen.keys)
+        finalWondersString.shuffle()
         
         if finalWondersString.count < 8 {
             for _ in finalWondersString.count ... 8 {
