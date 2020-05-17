@@ -42,59 +42,75 @@ enum WonderBundle {
 
 class Generator {
     
+    static let stupidWonders = ["Nomades"]
+    static let wondercopyWonders = ["Manneken Pis","DoppelWonder","Venezia","Myst","Trojan Horse","Springfield","Machu Picchu"]
+    static let wondercopyIncompatibleWonders = ["Atlantis","Chichen Itza","Ephyra","Tartaros","Temporal Paradox","Uruk","Dominion","Antiocheia","Helvetia","Petra","Brigadoon","Elysion Pedion"]
+    
     static func generate(playerNum: Int, bundles: Set<WonderBundle>, teams: Bool) -> [String] {
         
-        var chosenWonders = [String:Wonder]()
+        var combinedWonders = [String:Wonder]()
+        var finalWondersChosen = [String:Wonder]()
         debugPrint(bundles)
         
         //add enabled bundles
         bundles.forEach {
             for key in $0.getDict().keys {
-                chosenWonders[key] = $0.getDict()[key]
+                combinedWonders[key] = $0.getDict()[key]
             }
         }
         
         //filter wonders that require/cannot play with teams
         if teams {
-            chosenWonders = chosenWonders.filter {
-                if let req = $0.value.requirements {
-                    return !req.contains("No Teams")
-                } else { return true }
-            }
+            combinedWonders = combinedWonders.filter { if let req = $0.value.requirements { return !req.contains("No Teams") } else { return true }}
         } else {
-            chosenWonders = chosenWonders.filter {
-                if let req = $0.value.requirements {
-                    return !req.contains("Teams Only")
-                } else { return true }
-            }
+            combinedWonders = combinedWonders.filter { if let req = $0.value.requirements { return !req.contains("Teams Only") } else { return true }}
         }
         
         //player amount requirements
         if playerNum < 4 {
-            chosenWonders = chosenWonders.filter { if let req = $0.value.requirements { return !req.contains("4 Players or more") } else { return true }}
+            combinedWonders = combinedWonders.filter { if let req = $0.value.requirements { return !req.contains("4 Players or more") } else { return true }}
         }
         if playerNum < 5 {
-            chosenWonders = chosenWonders.filter { if let req = $0.value.requirements { return !req.contains("5 Players or more") } else { return true }}
+            combinedWonders = combinedWonders.filter { if let req = $0.value.requirements { return !req.contains("5 Players or more") } else { return true }}
         }
         
         //expansion pack requirements
         if !bundles.contains(WonderBundle.cities) {
-            chosenWonders = chosenWonders.filter { if let req = $0.value.requirements { return !req.contains("Cities") } else { return true }}
+            combinedWonders = combinedWonders.filter { if let req = $0.value.requirements { return !req.contains("Cities") } else { return true }}
         }
         if !bundles.contains(WonderBundle.leaders) {
-            chosenWonders = chosenWonders.filter { if let req = $0.value.requirements { return !req.contains("Leaders") } else { return true }}
+            combinedWonders = combinedWonders.filter { if let req = $0.value.requirements { return !req.contains("Leaders") } else { return true }}
         }
         if !bundles.contains(WonderBundle.armada) {
-            chosenWonders = chosenWonders.filter { if let req = $0.value.requirements { return !req.contains("Armada") } else { return true }}
+            combinedWonders = combinedWonders.filter { if let req = $0.value.requirements { return !req.contains("Armada") } else { return true }}
+        }
+        
+        //select wonders
+        for i in 0..<playerNum {
+            guard let selectedWonder = combinedWonders.randomElement() else { break }
+            
+            switch selectedWonder {
+            case let element where element.key == "Nomades":
+                finalWondersChosen[selectedWonder.key] = selectedWonder.value
+                combinedWonders.removeValue(forKey: selectedWonder.key)
+            default:
+                finalWondersChosen[selectedWonder.key] = selectedWonder.value
+                combinedWonders.removeValue(forKey: selectedWonder.key)
+            }
+            debugPrint("combinedWonders: \(combinedWonders.count)")
+            debugPrint("finalWondersChosen: \(finalWondersChosen.count)")
         }
         
         
-        var chosenWondersString: [String] = Array(chosenWonders.keys)
+        var combinedWondersString: [String] = Array(combinedWonders.keys)
+        var finalWondersString: [String] = Array(finalWondersChosen.keys)
         
-        //dirty hack, will remove later
-        if chosenWondersString.count < 8 {
-            chosenWondersString.append("")
+        if finalWondersString.count < 8 {
+            for _ in finalWondersString.count ... 8 {
+                finalWondersString.append("")
+            }
         }
-        return chosenWondersString
+        
+        return finalWondersString
     }
 }
