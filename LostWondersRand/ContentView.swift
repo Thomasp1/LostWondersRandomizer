@@ -13,10 +13,19 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             ScrollView {
-                ForEach(0..<8) { playerNum in
+                ForEach(0..<7) { playerNum in
                     HStack(alignment: .center, spacing: 4) {
                         TextField("Player \(playerNum+1)", text: self.$playersAndCivs.players[playerNum])
                         Text(self.playersAndCivs.civs[playerNum])
+                        .lineLimit(1)
+                        .fixedSize(horizontal: false, vertical: true)
+                    }
+                .padding(12)
+                }
+                if playersAndCivs.wonderBundles.count > 1 {
+                    HStack(alignment: .center, spacing: 4) {
+                        TextField("Player 8", text: self.$playersAndCivs.players[7])
+                        Text(self.playersAndCivs.civs[7])
                         .lineLimit(1)
                         .fixedSize(horizontal: false, vertical: true)
                     }
