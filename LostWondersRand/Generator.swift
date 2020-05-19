@@ -85,18 +85,72 @@ class Generator {
             combinedWonders = combinedWonders.filter { if let req = $0.value.requirements { return !req.contains("Armada") } else { return true }}
         }
         
+        
+        var wondercopyNum = 0
+        var incompatibleNum = 0
+        
         //select wonders
         for _ in 0..<playerNum {
             guard let selectedWonder = combinedWonders.randomElement() else { break }
             
             switch selectedWonder {
-            case let element where element.key == "Nomades":
+            case let element where self.stupidWonders.contains(element.key):
+                //add wonder to chosen wonders
                 finalWondersChosen[selectedWonder.key] = selectedWonder.value
                 combinedWonders.removeValue(forKey: selectedWonder.key)
                 
                 //remove wonder copying wonders
                 combinedWonders = combinedWonders.filter { !(self.wondercopyWonders.contains($0.key)) }
+            case let element where self.wondercopyWonders.contains(element.key):
+                wondercopyNum += 1
+                let troubleWondersNum = wondercopyNum + incompatibleNum
+                
+                //add wonder to chosen wonders
+                finalWondersChosen[selectedWonder.key] = selectedWonder.value
+                combinedWonders.removeValue(forKey: selectedWonder.key)
+                
+                //if we reach the max limit for how many wondercopy/incompatible wonders we can put in
+                if troubleWondersNum == playerNum / 2 {
+                    //remove wonder copying wonders
+                    combinedWonders = combinedWonders.filter { !(self.wondercopyWonders.contains($0.key)) }
+                    //remove copying incompatible wonders
+                    combinedWonders = combinedWonders.filter { !(self.wondercopyIncompatibleWonders.contains($0.key)) }
+                }
+                
+                //if no normal wonders are chosen yet to neighbour the wondercopy wonders, we should stop getting more incompatible wonders
+                if ((wondercopyNum * 2) + 1) + incompatibleNum == playerNum {
+                    combinedWonders = combinedWonders.filter { !(self.wondercopyIncompatibleWonders.contains($0.key)) }
+                }
+                
+                //remove stupid wonders
+                combinedWonders = combinedWonders.filter { !(self.stupidWonders.contains($0.key)) }
+                
+            case let element where self.wondercopyIncompatibleWonders.contains(element.key):
+                incompatibleNum += 1
+                let troubleWondersNum = wondercopyNum + incompatibleNum
+                
+                finalWondersChosen[selectedWonder.key] = selectedWonder.value
+                combinedWonders.removeValue(forKey: selectedWonder.key)
+                
+                if troubleWondersNum == playerNum / 2 {
+                    combinedWonders = combinedWonders.filter { !(self.wondercopyWonders.contains($0.key)) }
+                    combinedWonders = combinedWonders.filter { !(self.wondercopyIncompatibleWonders.contains($0.key)) }
+                }
+                
+                if wondercopyNum != 0 {
+                    //if no normal wonders are chosen yet to neighbour the wondercopy wonders, we should stop getting more incompatible wonders
+                    if ((wondercopyNum * 2) + 1) + incompatibleNum == playerNum {
+                        combinedWonders = combinedWonders.filter { !(self.wondercopyIncompatibleWonders.contains($0.key)) }
+                    }
+                } else {
+                    //its possible to choose so many incompatible wonders, that there is no room left for wonder-copying wonders
+                    if ((wondercopyNum * 2) + 1) + incompatibleNum > playerNum {
+                        combinedWonders = combinedWonders.filter { !(self.wondercopyWonders.contains($0.key)) }
+                    }
+                }
+                
             default:
+                //normal wonders that don't cause trouble
                 finalWondersChosen[selectedWonder.key] = selectedWonder.value
                 combinedWonders.removeValue(forKey: selectedWonder.key)
             }
