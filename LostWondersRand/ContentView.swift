@@ -13,7 +13,7 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             ScrollView {
-                ForEach(0..<8) { playerNum in
+                ForEach(0..<7) { playerNum in
                     HStack(alignment: .center, spacing: 4) {
                         TextField("Player \(playerNum+1)", text: self.$playersAndCivs.players[playerNum])
                         Text(self.playersAndCivs.civs[playerNum])
@@ -22,10 +22,18 @@ struct ContentView: View {
                     }
                 .padding(12)
                 }
+                if playersAndCivs.wonderBundles.count > 1 {
+                    HStack(alignment: .center, spacing: 4) {
+                        TextField("Player 8", text: self.$playersAndCivs.players[7])
+                        Text(self.playersAndCivs.civs[7])
+                        .lineLimit(1)
+                        .fixedSize(horizontal: false, vertical: true)
+                    }
+                .padding(12)
+                }
                 Spacer()
                 Button("GENERATE") {
-                    self.playersAndCivs.civs = Generator.generate(playerNum: 5, bundles:
-                        self.playersAndCivs.wonderBundles, teams: self.playersAndCivs.teams)
+                    self.playersAndCivs.generateCivs()
                 }
                 .padding()
                 .font(.headline)
