@@ -74,6 +74,19 @@ class PlayersAndCivs: ObservableObject {
         }
     }
     
+    var actualPlayerNum: Int {
+        return self.players.filter{ $0 != "" }.count
+    }
+    
+    func generateCivs() {
+        if self.actualPlayerNum > 2 {
+            self.civs = Generator.generate(
+                playerNum: self.actualPlayerNum,
+                bundles: self.wonderBundles,
+                teams: self.teams)
+        }
+    }
+    
     func changePlayer(at: Int, name: String) {
         players[at] = name
     }

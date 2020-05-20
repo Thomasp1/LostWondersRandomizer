@@ -33,11 +33,7 @@ struct ContentView: View {
                 }
                 Spacer()
                 Button("GENERATE") {
-                    let playerNum = self.playersAndCivs.players.filter{ $0 != "" }.count
-                    if playerNum > 2 {
-                        self.playersAndCivs.civs = Generator.generate(playerNum: playerNum, bundles:
-                            self.playersAndCivs.wonderBundles, teams: self.playersAndCivs.teams)
-                    }
+                    self.playersAndCivs.generateCivs()
                 }
                 .padding()
                 .font(.headline)
