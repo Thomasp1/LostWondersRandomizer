@@ -21,7 +21,8 @@ struct ContentView: View {
                             .lineLimit(1)
                             .fixedSize(horizontal: false, vertical: true)
                         }
-                    .padding(12)
+                    .padding()
+                        .frame(height: 44)
                     }
                     if playersAndCivs.wonderBundles.count > 1 {
                         HStack(alignment: .center, spacing: 4) {
@@ -30,9 +31,16 @@ struct ContentView: View {
                             .lineLimit(1)
                             .fixedSize(horizontal: false, vertical: true)
                         }
-                    .padding(12)
+                    .padding()
+                        .frame(height: 44)
                     }
-
+                    HStack {
+                        Text("Test \n newline \n another new line jfkdls;ajfklds;ajfkdl;asjfkdlajki")
+                            .multilineTextAlignment(.leading)
+                            .padding()
+                        Spacer()
+                    }
+                    .hidden()
 
 
                 }
@@ -41,14 +49,32 @@ struct ContentView: View {
                     Text("Settings")
                 })
                 Spacer(minLength: 12)
-                Button("GENERATE") {
-                    self.playersAndCivs.generateCivs()
+                HStack(alignment: .center) {
+                    Button("Temporal Paradox") {
+                        
+                    }
+                    .padding()
+                    .font(.headline)
+                    .background(Color.init(red: 0.2, green: 0.3, blue: 0.5))
+                    .foregroundColor(Color.white)
+                    .lineLimit(2)
+                    .multilineTextAlignment(.center)
+                    .clipShape(Capsule(style: .continuous) )
+                    .frame(maxWidth: .infinity)
+                    .hidden()
+                    Button("GENERATE") {
+                        self.playersAndCivs.generateCivs()
+                    }
+                    .padding()
+                    .font(.headline)
+                    .background(Color.purple)
+                    .foregroundColor(Color.white)
+                    .clipShape(Capsule(style: .continuous) )
+                    .frame(maxWidth: .infinity)
+                    Spacer()
+                    .frame(maxWidth: .infinity)
                 }
-                .padding()
-                .font(.headline)
-                .background(Color.purple)
-                .foregroundColor(Color.white)
-                .clipShape(Capsule(style: .continuous) )
+                .padding(2)
                 Spacer(minLength: 12)
             }
             .background(Color.init(.lightGray))
