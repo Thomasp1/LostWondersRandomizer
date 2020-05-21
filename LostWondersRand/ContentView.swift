@@ -34,6 +34,24 @@ struct ContentView: View {
                     .padding()
                         .frame(height: 44)
                     }
+                    if playersAndCivs.temporalAvailable {
+                        HStack(alignment: .center, spacing: 4) {
+                            Text("Temporal 1")
+                            Text(self.playersAndCivs.civs[8])
+                            .lineLimit(1)
+                            .fixedSize(horizontal: false, vertical: true)
+                        }
+                    .padding()
+                        .frame(height: 44)
+                        HStack(alignment: .center, spacing: 4) {
+                                Text("Temporal 2")
+                                Text(self.playersAndCivs.civs[9])
+                                .lineLimit(1)
+                                .fixedSize(horizontal: false, vertical: true)
+                            }
+                        .padding()
+                            .frame(height: 44)
+                    }
                     HStack {
                         Text("Test \n newline \n another new line jfkdls;ajfklds;ajfkdl;asjfkdlajki")
                             .multilineTextAlignment(.leading)
