@@ -50,7 +50,6 @@ class Generator {
         
         var combinedWonders = [String:Wonder]()
         var finalWondersChosen = [String:Wonder]()
-        debugPrint(bundles)
         
         //add enabled bundles
         bundles.forEach {
@@ -88,6 +87,8 @@ class Generator {
         
         var wondercopyNum = 0
         var incompatibleNum = 0
+        var temporalParadoxChosen = false
+        var temporalRescue = [String:Wonder]()
         
         //select wonders
         for _ in 0..<playerNum {
@@ -132,6 +133,8 @@ class Generator {
                 finalWondersChosen[selectedWonder.key] = selectedWonder.value
                 combinedWonders.removeValue(forKey: selectedWonder.key)
                 
+                if selectedWonder.key == "Temporal Paradox" { temporalParadoxChosen = true }
+                
                 if troubleWondersNum == playerNum / 2 {
                     combinedWonders = combinedWonders.filter { !(self.wondercopyWonders.contains($0.key)) }
                     combinedWonders = combinedWonders.filter { !(self.wondercopyIncompatibleWonders.contains($0.key)) }
@@ -156,6 +159,19 @@ class Generator {
             }
         }
         
+        var temporalChosen = [String]()
+        if finalWondersChosen["Temporal Paradox"] != nil {
+            if let temporalChoiceOne = combinedWonders.randomElement() {
+                temporalChosen.append(temporalChoiceOne.key)
+                combinedWonders.removeValue(forKey: temporalChoiceOne.key)
+            }
+            if let temporalChoiceTwo = combinedWonders.randomElement() {
+                temporalChosen.append(temporalChoiceTwo.key)
+                combinedWonders.removeValue(forKey: temporalChoiceTwo.key)
+            }
+            
+        }
+        
         
         var finalWondersString: [String] = Array(finalWondersChosen.keys)
         finalWondersString.shuffle()
@@ -166,6 +182,9 @@ class Generator {
             }
         }
         
-        return finalWondersString
+        debugPrint("finalWonderString: \(finalWondersString)")
+        debugPrint("temporalChosen: \(temporalChosen)")
+        
+        return finalWondersString + temporalChosen
     }
 }

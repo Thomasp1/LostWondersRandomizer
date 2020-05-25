@@ -10,8 +10,8 @@ import Foundation
 import SwiftUI
 
 class PlayersAndCivs: ObservableObject {
-    @Published var players = [String](repeating: "", count: 8)
-    @Published var civs = [String](repeating: "", count: 8)
+    @Published var players = [String](repeating: "", count: 10)
+    @Published var civs = [String](repeating: "", count: 10)
     @Published var wonderBundles: Set = [WonderBundle.original]
     @Published var teams = false
     @Published var cities: Bool = false {
@@ -76,6 +76,18 @@ class PlayersAndCivs: ObservableObject {
     
     var actualPlayerNum: Int {
         return self.players.filter{ $0 != "" }.count
+    }
+    
+    var temporalChoices: [String] {
+        if temporalAvailable {
+            return [self.civs[civs.count-1],self.civs[civs.count-2]]
+        } else {
+            return ["",""]
+        }
+    }
+    
+    var temporalAvailable: Bool {
+        return self.civs.contains("Temporal Paradox")
     }
     
     func generateCivs() {
