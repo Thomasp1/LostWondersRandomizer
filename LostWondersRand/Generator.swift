@@ -182,7 +182,8 @@ class Generator {
             }
         }
         
-        debugPrint(finalWondersString + temporalChosen)
+        debugPrint("finalWonderString: \(finalWondersString)")
+        debugPrint("temporalChosen: \(temporalChosen)")
         
         return finalWondersString + temporalChosen
     }

@@ -10,6 +10,7 @@ import SwiftUI
 
 struct ContentView: View {
     @EnvironmentObject var playersAndCivs: PlayersAndCivs
+    @State var showTemporal = false
     var body: some View {
         NavigationView {
             VStack {
@@ -34,23 +35,23 @@ struct ContentView: View {
                     .padding()
                         .frame(height: 44)
                     }
-                    if playersAndCivs.temporalAvailable {
+                    if playersAndCivs.temporalAvailable && showTemporal {
                         HStack(alignment: .center, spacing: 4) {
-                            Text("Temporal 1")
-                            Text(self.playersAndCivs.civs[8])
+                            Text("Temporal choice 1: ")
+                            Text(self.playersAndCivs.temporalChoices[0])
                             .lineLimit(1)
                             .fixedSize(horizontal: false, vertical: true)
                         }
-                    .padding()
+                        .padding()
                         .frame(height: 44)
                         HStack(alignment: .center, spacing: 4) {
-                                Text("Temporal 2")
-                                Text(self.playersAndCivs.civs[9])
+                                Text("Temporal choice 2: ")
+                                Text(self.playersAndCivs.temporalChoices[1])
                                 .lineLimit(1)
                                 .fixedSize(horizontal: false, vertical: true)
-                            }
+                        }
                         .padding()
-                            .frame(height: 44)
+                        .frame(height: 44)
                     }
                     HStack {
                         Text("Test \n newline \n another new line jfkdls;ajfklds;ajfkdl;asjfkdlajki")
@@ -63,25 +64,41 @@ struct ContentView: View {
 
                 }
                 .background(Color.white)
+                
                 .navigationBarItems(trailing: NavigationLink(destination: SettingsView()){
                     Text("Settings")
                 })
                 Spacer(minLength: 12)
                 HStack(alignment: .center) {
-                    Button("Temporal Paradox") {
-                        
+                    if playersAndCivs.temporalAvailable && !showTemporal {
+                        Button("Temporal Paradox") {
+                            self.showTemporal = true
+                        }
+                        .padding()
+                        .font(.headline)
+                        .background(Color.init(red: 0.2, green: 0.3, blue: 0.5))
+                        .foregroundColor(Color.white)
+                        .lineLimit(2)
+                        .multilineTextAlignment(.center)
+                        .clipShape(Capsule(style: .continuous) )
+                        .frame(maxWidth: .infinity)
+                    } else {
+                        Button("Temporal Paradox") {
+                            self.showTemporal = true
+                        }
+                        .padding()
+                        .font(.headline)
+                        .background(Color.init(red: 0.2, green: 0.3, blue: 0.5))
+                        .foregroundColor(Color.white)
+                        .lineLimit(2)
+                        .multilineTextAlignment(.center)
+                        .clipShape(Capsule(style: .continuous) )
+                        .frame(maxWidth: .infinity)
+                        .hidden()
                     }
-                    .padding()
-                    .font(.headline)
-                    .background(Color.init(red: 0.2, green: 0.3, blue: 0.5))
-                    .foregroundColor(Color.white)
-                    .lineLimit(2)
-                    .multilineTextAlignment(.center)
-                    .clipShape(Capsule(style: .continuous) )
-                    .frame(maxWidth: .infinity)
-                    .hidden()
                     Button("GENERATE") {
                         self.playersAndCivs.generateCivs()
+                        self.showTemporal = false
                     }
                     .padding()
                     .font(.headline)

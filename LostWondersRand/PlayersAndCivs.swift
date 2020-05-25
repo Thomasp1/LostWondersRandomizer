@@ -79,7 +79,11 @@ class PlayersAndCivs: ObservableObject {
     }
     
     var temporalChoices: [String] {
-        return [self.civs[8],self.civs[9]]
+        if temporalAvailable {
+            return [self.civs[civs.count-1],self.civs[civs.count-2]]
+        } else {
+            return ["",""]
+        }
     }
     
     var temporalAvailable: Bool {
