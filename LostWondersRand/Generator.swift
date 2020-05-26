@@ -42,14 +42,24 @@ enum WonderBundle {
 
 class Generator {
     
+    private static var combinedWonders = [String:Wonder]()
+    private static var remainingChoiceWonders = [String:Wonder]()
+    private static var finalWondersChosen = [String:Wonder]()
+    private static var startingResourceCounter = [String:Int]()
+    
+    //civ that can't be in a game with any civs that has wonder-copying ability, whatsoever
     static let stupidWonders = ["Nomades"]
+    //civs with wonder-copying ability
     static let wondercopyWonders = ["Manneken Pis","DoppelWonder","Venezia","Myst","Trojan Horse","Springfield","Machu Picchu"]
+    //civs that cannot be next to a civ with wonder-copying ability
     static let wondercopyIncompatibleWonders = ["Atlantis","Chichen Itza","Ephyra","Tartaros","Temporal Paradox","Uruk","Dominion","Antiocheia","Helvetia","Petra","Brigadoon","Elysion Pedion"]
     
     static func generate(playerNum: Int, bundles: Set<WonderBundle>, teams: Bool) -> [String] {
         
-        var combinedWonders = [String:Wonder]()
-        var finalWondersChosen = [String:Wonder]()
+        combinedWonders.removeAll()
+        remainingChoiceWonders.removeAll()
+        finalWondersChosen.removeAll()
+        startingResourceCounter.removeAll()
         
         //add enabled bundles
         bundles.forEach {
@@ -57,31 +67,32 @@ class Generator {
                 combinedWonders[key] = $0.getDict()[key]
             }
         }
+        remainingChoiceWonders = combinedWonders
         
         //filter wonders that require/cannot play with teams
         if teams {
-            combinedWonders = combinedWonders.filter { if let req = $0.value.requirements { return !req.contains("No Teams") } else { return true }}
+            remainingChoiceWonders = remainingChoiceWonders.filter { if let req = $0.value.requirements { return !req.contains("No Teams") } else { return true }}
         } else {
-            combinedWonders = combinedWonders.filter { if let req = $0.value.requirements { return !req.contains("Teams Only") } else { return true }}
+            remainingChoiceWonders = remainingChoiceWonders.filter { if let req = $0.value.requirements { return !req.contains("Teams Only") } else { return true }}
         }
         
         //player amount requirements
         if playerNum < 4 {
-            combinedWonders = combinedWonders.filter { if let req = $0.value.requirements { return !req.contains("4 Players or more") } else { return true }}
+            remainingChoiceWonders = remainingChoiceWonders.filter { if let req = $0.value.requirements { return !req.contains("4 Players or more") } else { return true }}
         }
         if playerNum < 5 {
-            combinedWonders = combinedWonders.filter { if let req = $0.value.requirements { return !req.contains("5 Players or more") } else { return true }}
+            remainingChoiceWonders = remainingChoiceWonders.filter { if let req = $0.value.requirements { return !req.contains("5 Players or more") } else { return true }}
         }
         
         //expansion pack requirements
         if !bundles.contains(WonderBundle.cities) {
-            combinedWonders = combinedWonders.filter { if let req = $0.value.requirements { return !req.contains("Cities") } else { return true }}
+            remainingChoiceWonders = remainingChoiceWonders.filter { if let req = $0.value.requirements { return !req.contains("Cities") } else { return true }}
         }
         if !bundles.contains(WonderBundle.leaders) {
-            combinedWonders = combinedWonders.filter { if let req = $0.value.requirements { return !req.contains("Leaders") } else { return true }}
+            remainingChoiceWonders = remainingChoiceWonders.filter { if let req = $0.value.requirements { return !req.contains("Leaders") } else { return true }}
         }
         if !bundles.contains(WonderBundle.armada) {
-            combinedWonders = combinedWonders.filter { if let req = $0.value.requirements { return !req.contains("Armada") } else { return true }}
+            remainingChoiceWonders = remainingChoiceWonders.filter { if let req = $0.value.requirements { return !req.contains("Armada") } else { return true }}
         }
         
         
@@ -92,82 +103,87 @@ class Generator {
         
         //select wonders
         for _ in 0..<playerNum {
-            guard let selectedWonder = combinedWonders.randomElement() else { break }
+            guard let selectedWonder = remainingChoiceWonders.randomElement() else { break }
             
             switch selectedWonder {
             case let element where self.stupidWonders.contains(element.key):
                 //add wonder to chosen wonders
                 finalWondersChosen[selectedWonder.key] = selectedWonder.value
-                combinedWonders.removeValue(forKey: selectedWonder.key)
+                remainingChoiceWonders.removeValue(forKey: selectedWonder.key)
                 
                 //remove wonder copying wonders
-                combinedWonders = combinedWonders.filter { !(self.wondercopyWonders.contains($0.key)) }
+                remainingChoiceWonders = remainingChoiceWonders.filter { !(self.wondercopyWonders.contains($0.key)) }
             case let element where self.wondercopyWonders.contains(element.key):
                 wondercopyNum += 1
                 let troubleWondersNum = wondercopyNum + incompatibleNum
                 
                 //add wonder to chosen wonders
                 finalWondersChosen[selectedWonder.key] = selectedWonder.value
-                combinedWonders.removeValue(forKey: selectedWonder.key)
+                remainingChoiceWonders.removeValue(forKey: selectedWonder.key)
                 
                 //if we reach the max limit for how many wondercopy/incompatible wonders we can put in
                 if troubleWondersNum == playerNum / 2 {
                     //remove wonder copying wonders
-                    combinedWonders = combinedWonders.filter { !(self.wondercopyWonders.contains($0.key)) }
+                    remainingChoiceWonders = remainingChoiceWonders.filter { !(self.wondercopyWonders.contains($0.key)) }
                     //remove copying incompatible wonders
-                    combinedWonders = combinedWonders.filter { !(self.wondercopyIncompatibleWonders.contains($0.key)) }
+                    remainingChoiceWonders = remainingChoiceWonders.filter { !(self.wondercopyIncompatibleWonders.contains($0.key)) }
                 }
                 
                 //if no normal wonders are chosen yet to neighbour the wondercopy wonders, we should stop getting more incompatible wonders
                 if ((wondercopyNum * 2) + 1) + incompatibleNum == playerNum {
-                    combinedWonders = combinedWonders.filter { !(self.wondercopyIncompatibleWonders.contains($0.key)) }
+                    remainingChoiceWonders = remainingChoiceWonders.filter { !(self.wondercopyIncompatibleWonders.contains($0.key)) }
                 }
                 
                 //remove stupid wonders
-                combinedWonders = combinedWonders.filter { !(self.stupidWonders.contains($0.key)) }
+                remainingChoiceWonders = remainingChoiceWonders.filter { !(self.stupidWonders.contains($0.key)) }
                 
             case let element where self.wondercopyIncompatibleWonders.contains(element.key):
                 incompatibleNum += 1
                 let troubleWondersNum = wondercopyNum + incompatibleNum
                 
                 finalWondersChosen[selectedWonder.key] = selectedWonder.value
-                combinedWonders.removeValue(forKey: selectedWonder.key)
+                remainingChoiceWonders.removeValue(forKey: selectedWonder.key)
                 
                 if selectedWonder.key == "Temporal Paradox" { temporalParadoxChosen = true }
                 
                 if troubleWondersNum == playerNum / 2 {
-                    combinedWonders = combinedWonders.filter { !(self.wondercopyWonders.contains($0.key)) }
-                    combinedWonders = combinedWonders.filter { !(self.wondercopyIncompatibleWonders.contains($0.key)) }
+                    remainingChoiceWonders = remainingChoiceWonders.filter { !(self.wondercopyWonders.contains($0.key)) }
+                    remainingChoiceWonders = remainingChoiceWonders.filter { !(self.wondercopyIncompatibleWonders.contains($0.key)) }
                 }
                 
                 if wondercopyNum != 0 {
                     //if no normal wonders are chosen yet to neighbour the wondercopy wonders, we should stop getting more incompatible wonders
                     if ((wondercopyNum * 2) + 1) + incompatibleNum == playerNum {
-                        combinedWonders = combinedWonders.filter { !(self.wondercopyIncompatibleWonders.contains($0.key)) }
+                        remainingChoiceWonders = remainingChoiceWonders.filter { !(self.wondercopyIncompatibleWonders.contains($0.key)) }
                     }
                 } else {
                     //its possible to choose so many incompatible wonders, that there is no room left for wonder-copying wonders
                     if ((wondercopyNum * 2) + 1) + incompatibleNum > playerNum {
-                        combinedWonders = combinedWonders.filter { !(self.wondercopyWonders.contains($0.key)) }
+                        remainingChoiceWonders = remainingChoiceWonders.filter { !(self.wondercopyWonders.contains($0.key)) }
                     }
                 }
                 
             default:
                 //normal wonders that don't cause trouble
                 finalWondersChosen[selectedWonder.key] = selectedWonder.value
-                combinedWonders.removeValue(forKey: selectedWonder.key)
+                remainingChoiceWonders.removeValue(forKey: selectedWonder.key)
             }
+            
+            if bundles.contains(WonderBundle.lostWonders) || bundles.contains(WonderBundle.lostWonders2) {
+                remainingChoiceWonders = filterStartingResources(remainingWonders: &remainingChoiceWonders, chosenWonder: selectedWonder.key)
+            }
+            
         }
         
         var temporalChosen = [String]()
         if finalWondersChosen["Temporal Paradox"] != nil {
-            if let temporalChoiceOne = combinedWonders.randomElement() {
+            if let temporalChoiceOne = remainingChoiceWonders.randomElement() {
                 temporalChosen.append(temporalChoiceOne.key)
-                combinedWonders.removeValue(forKey: temporalChoiceOne.key)
+                remainingChoiceWonders.removeValue(forKey: temporalChoiceOne.key)
             }
-            if let temporalChoiceTwo = combinedWonders.randomElement() {
+            if let temporalChoiceTwo = remainingChoiceWonders.randomElement() {
                 temporalChosen.append(temporalChoiceTwo.key)
-                combinedWonders.removeValue(forKey: temporalChoiceTwo.key)
+                remainingChoiceWonders.removeValue(forKey: temporalChoiceTwo.key)
             }
             
         }
@@ -184,7 +200,84 @@ class Generator {
         
         debugPrint("finalWonderString: \(finalWondersString)")
         debugPrint("temporalChosen: \(temporalChosen)")
+        debugPrint("resourceCounter: \(startingResourceCounter)")
         
         return finalWondersString + temporalChosen
+    }
+    
+    private static func filterStartingResources(remainingWonders: inout [String:Wonder], chosenWonder: String) -> [String:Wonder] {
+        
+        guard var resourceNameA = combinedWonders[chosenWonder]?.a.resource,
+            var resourceNameB = combinedWonders[chosenWonder]?.b.resource else {
+                return remainingWonders
+        }
+        
+        //assuming dual/split starting resources are identical on A side and B side
+        if resourceNameA.contains(",") {
+            let resourceSplitArray = resourceNameA.split(separator: ",")
+            resourceNameA = String(resourceSplitArray[0])
+            resourceNameB = String(resourceSplitArray[1])
+        } else if resourceNameA.contains("/") {
+            let resourceSplitArray = resourceNameA.split(separator: "/")
+            resourceNameA = String(resourceSplitArray[0])
+            resourceNameB = String(resourceSplitArray[1])
+        }
+        
+        startingResourceCounter[resourceNameA] = (startingResourceCounter[resourceNameA] ?? 0) + 1
+        if startingResourceCounter[resourceNameA] == 3 {
+            remainingWonders.keys.forEach {
+                if let wr = remainingWonders[$0]?.a.resource {
+                    debugPrint("wr: \(wr)")
+                    if wr.contains(",") {
+                        let resourceSplitArray = wr.split(separator: ",")
+                        debugPrint("splitArray: \(resourceSplitArray)")
+                        if wr == resourceSplitArray[0] || wr == resourceSplitArray[1] {
+                            remainingWonders[$0] = nil
+                        }
+                    } else if wr.contains("/") {
+                        let resourceSplitArray = wr.split(separator: "/")
+                        debugPrint("splitArray: \(resourceSplitArray)")
+                        if wr == resourceSplitArray[0] || wr == resourceSplitArray[1] {
+                            remainingWonders[$0] = nil
+                        }
+                    } else {
+                        if wr == resourceNameA {
+                            remainingWonders[$0] = nil
+                        }
+                    }
+                }
+                
+            }
+        }
+        if resourceNameA != resourceNameB {
+            startingResourceCounter[resourceNameB] = (startingResourceCounter[resourceNameB] ?? 0) + 1
+            if startingResourceCounter[resourceNameB] == 3 {
+                remainingWonders.keys.forEach {
+                    if let wr = remainingWonders[$0]?.b.resource {
+                        debugPrint("wr: \(wr)")
+                        if wr.contains(",") {
+                            let resourceSplitArray = wr.split(separator: ",")
+                            debugPrint("splitArray: \(resourceSplitArray)")
+                            if wr == resourceSplitArray[0] || wr == resourceSplitArray[1] {
+                                remainingWonders[$0] = nil
+                            }
+                        } else if let wr = remainingWonders[$0]?.b.resource, wr.contains("/") {
+                            let resourceSplitArray = wr.split(separator: "/")
+                            debugPrint("splitArray: \(resourceSplitArray)")
+                            if wr == resourceSplitArray[0] || wr == resourceSplitArray[1] {
+                                remainingWonders[$0] = nil
+                            }
+                        } else if let wr = remainingWonders[$0]?.b.resource {
+                            if wr == resourceNameA {
+                                remainingWonders[$0] = nil
+                            }
+                        }
+                    }
+                    
+                }
+            }
+        }
+        return remainingWonders
+        
     }
 }
