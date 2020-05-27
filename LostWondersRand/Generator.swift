@@ -231,13 +231,13 @@ class Generator {
                     if wr.contains(",") {
                         let resourceSplitArray = wr.split(separator: ",")
                         debugPrint("splitArray: \(resourceSplitArray)")
-                        if wr == resourceSplitArray[0] || wr == resourceSplitArray[1] {
+                        if resourceNameA == resourceSplitArray[0] || resourceNameA == resourceSplitArray[1] {
                             remainingWonders[$0] = nil
                         }
                     } else if wr.contains("/") {
                         let resourceSplitArray = wr.split(separator: "/")
                         debugPrint("splitArray: \(resourceSplitArray)")
-                        if wr == resourceSplitArray[0] || wr == resourceSplitArray[1] {
+                        if resourceNameA == resourceSplitArray[0] || resourceNameA == resourceSplitArray[1] {
                             remainingWonders[$0] = nil
                         }
                     } else {
@@ -258,17 +258,17 @@ class Generator {
                         if wr.contains(",") {
                             let resourceSplitArray = wr.split(separator: ",")
                             debugPrint("splitArray: \(resourceSplitArray)")
-                            if wr == resourceSplitArray[0] || wr == resourceSplitArray[1] {
+                            if resourceNameB == resourceSplitArray[0] || resourceNameB == resourceSplitArray[1] {
                                 remainingWonders[$0] = nil
                             }
-                        } else if let wr = remainingWonders[$0]?.b.resource, wr.contains("/") {
+                        } else if wr.contains("/") {
                             let resourceSplitArray = wr.split(separator: "/")
                             debugPrint("splitArray: \(resourceSplitArray)")
-                            if wr == resourceSplitArray[0] || wr == resourceSplitArray[1] {
+                            if resourceNameB == resourceSplitArray[0] || resourceNameB == resourceSplitArray[1] {
                                 remainingWonders[$0] = nil
                             }
-                        } else if let wr = remainingWonders[$0]?.b.resource {
-                            if wr == resourceNameA {
+                        } else {
+                            if wr == resourceNameB {
                                 remainingWonders[$0] = nil
                             }
                         }
@@ -279,5 +279,92 @@ class Generator {
         }
         return remainingWonders
         
+    }
+    
+    private static func getNotes(chosenWonders: inout [String:Wonder]) -> String {
+        
+        var requiresDice = false
+        var removeMidas = false
+        var removeAlexander = false
+        var requiresDominionCard = false
+        var requiresExtraPurpleCards = false
+        var requiresExtraBlackCards = false
+        var wondercopyWondersNum = 0
+        var incompatibleWondersNum = 0
+        var wonderCopyList = ""
+        var incompatibleList = ""
+        var finalNotesText = ""
+        
+        chosenWonders.keys.forEach {
+            if chosenWonders[$0]?.requirements?.contains("Dice") ?? false {
+                requiresDice = true
+            }
+            if chosenWonders[$0]?.requirements?.contains("No Midas Leader") ?? false {
+                removeMidas = true
+            }
+            if chosenWonders[$0]?.requirements?.contains("No Alexander Leader") ?? false {
+                removeAlexander = true
+            }
+            if chosenWonders[$0]?.requirements?.contains("Dominion Card") ?? false {
+                requiresDominionCard = true
+            }
+            if chosenWonders[$0]?.requirements?.contains("Extra Guild Cards") ?? false {
+                requiresExtraPurpleCards = true
+            }
+            if chosenWonders[$0]?.requirements?.contains("Extra City Cards") ?? false {
+                requiresExtraBlackCards = true
+            }
+            
+            switch $0 {
+                case let key where self.wondercopyWonders.contains(key):
+                wondercopyWondersNum += 1
+                
+                if wondercopyWondersNum == 1 {
+                    wonderCopyList = $0
+                } else if wondercopyWondersNum == 2 {
+                    wonderCopyList += ", " + $0
+                } else if wondercopyWondersNum > 2 {
+                    wonderCopyList += ", " + $0
+                }
+                case let key where self.wondercopyIncompatibleWonders.contains(key):
+                incompatibleWondersNum += 1
+                incompatibleList += $0 + ", "
+            default:
+                break
+            }
+            
+            if wondercopyWondersNum > 1 {
+                finalNotesText = wonderCopyList + "\ncannot be neighbours\n"
+                if incompatibleWondersNum > 0 {
+                    finalNotesText += "and cannot be neighbours with:\n" + incompatibleList + "\n"
+                }
+            } else if wondercopyWondersNum == 1 {
+                if incompatibleWondersNum > 0 {
+                    finalNotesText = wonderCopyList + "\ncannot be neighbours with:\n" + incompatibleList + "\n"
+                }
+            }
+            
+            if requiresDice {
+                finalNotesText += "6-sided Dice required\n"
+            }
+            if removeMidas {
+                finalNotesText += "remove Midas from the Leaders Deck\n"
+            }
+            if removeAlexander {
+                finalNotesText += "remove Alexander from the Leaders Deck\n"
+            }
+            if requiresDominionCard {
+                finalNotesText += "make sure you have the Dominion Card\n"
+            }
+            if requiresExtraPurpleCards {
+                finalNotesText += "requires 3 extra unused Guild Cards\n"
+            }
+            if requiresExtraBlackCards {
+                finalNotesText += "requires 6 extra unused City Cards, 2 for each era\n"
+            }
+            
+        }
+        
+        return finalNotesText
     }
 }
