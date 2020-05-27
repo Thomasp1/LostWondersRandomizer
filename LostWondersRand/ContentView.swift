@@ -70,13 +70,14 @@ struct ContentView: View {
                 Spacer(minLength: 12)
                 HStack(alignment: .center) {
                     if playersAndCivs.temporalAvailable && !showTemporal {
-                        Button("Temporal Paradox") {
+                        Button("Temporal\nParadox") {
                             self.showTemporal = true
                         }
                         .padding()
                         .font(.headline)
                         .background(Color.init(red: 0.2, green: 0.3, blue: 0.5))
                         .foregroundColor(Color.white)
+                        .minimumScaleFactor(0.5)
                         .lineLimit(2)
                         .multilineTextAlignment(.center)
                         .clipShape(Capsule(style: .continuous) )
@@ -103,6 +104,8 @@ struct ContentView: View {
                     .font(.headline)
                     .background(Color.purple)
                     .foregroundColor(Color.white)
+                    .minimumScaleFactor(0.5)
+                    .scaledToFill()
                     .clipShape(Capsule(style: .continuous) )
                     .frame(maxWidth: .infinity)
                     Spacer()
