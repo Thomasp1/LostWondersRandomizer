@@ -54,7 +54,7 @@ class Generator {
     //civs that cannot be next to a civ with wonder-copying ability
     static let wondercopyIncompatibleWonders = ["Atlantis","Chichen Itza","Ephyra","Tartaros","Temporal Paradox","Uruk","Dominion","Antiocheia","Helvetia","Petra","Brigadoon","Elysion Pedion"]
     
-    static func generate(playerNum: Int, bundles: Set<WonderBundle>, teams: Bool) -> [String] {
+    static func generate(playerNum: Int, bundles: Set<WonderBundle>, teams: Bool) -> ([String],String) {
         
         combinedWonders.removeAll()
         remainingChoiceWonders.removeAll()
@@ -202,7 +202,9 @@ class Generator {
         debugPrint("temporalChosen: \(temporalChosen)")
         debugPrint("resourceCounter: \(startingResourceCounter)")
         
-        return finalWondersString + temporalChosen
+        let finalStringArray = finalWondersString + temporalChosen
+        let notes = getNotes(chosenWonders: finalWondersChosen)
+        return (finalStringArray,notes)
     }
     
     private static func filterStartingResources(remainingWonders: inout [String:Wonder], chosenWonder: String) -> [String:Wonder] {
@@ -281,7 +283,7 @@ class Generator {
         
     }
     
-    private static func getNotes(chosenWonders: inout [String:Wonder]) -> String {
+    private static func getNotes(chosenWonders: [String:Wonder]) -> String {
         
         var requiresDice = false
         var removeMidas = false
@@ -333,38 +335,39 @@ class Generator {
                 break
             }
             
-            if wondercopyWondersNum > 1 {
-                finalNotesText = wonderCopyList + "\ncannot be neighbours\n"
-                if incompatibleWondersNum > 0 {
-                    finalNotesText += "and cannot be neighbours with:\n" + incompatibleList + "\n"
-                }
-            } else if wondercopyWondersNum == 1 {
-                if incompatibleWondersNum > 0 {
-                    finalNotesText = wonderCopyList + "\ncannot be neighbours with:\n" + incompatibleList + "\n"
-                }
-            }
-            
-            if requiresDice {
-                finalNotesText += "6-sided Dice required\n"
-            }
-            if removeMidas {
-                finalNotesText += "remove Midas from the Leaders Deck\n"
-            }
-            if removeAlexander {
-                finalNotesText += "remove Alexander from the Leaders Deck\n"
-            }
-            if requiresDominionCard {
-                finalNotesText += "make sure you have the Dominion Card\n"
-            }
-            if requiresExtraPurpleCards {
-                finalNotesText += "requires 3 extra unused Guild Cards\n"
-            }
-            if requiresExtraBlackCards {
-                finalNotesText += "requires 6 extra unused City Cards, 2 for each era\n"
-            }
-            
         }
         
+        if wondercopyWondersNum > 1 {
+            finalNotesText = wonderCopyList + "\ncannot be neighbours\n"
+            if incompatibleWondersNum > 0 {
+                finalNotesText += "and cannot be neighbours with:\n" + incompatibleList + "\n"
+            }
+        } else if wondercopyWondersNum == 1 {
+            if incompatibleWondersNum > 0 {
+                finalNotesText = wonderCopyList + "\ncannot be neighbours with:\n" + incompatibleList + "\n"
+            }
+        }
+        
+        if requiresDice {
+            finalNotesText += "6-sided Dice required\n"
+        }
+        if removeMidas {
+            finalNotesText += "remove Midas from the Leaders Deck\n"
+        }
+        if removeAlexander {
+            finalNotesText += "remove Alexander from the Leaders Deck\n"
+        }
+        if requiresDominionCard {
+            finalNotesText += "make sure you have the Dominion Card\n"
+        }
+        if requiresExtraPurpleCards {
+            finalNotesText += "requires 3 extra unused Guild Cards\n"
+        }
+        if requiresExtraBlackCards {
+            finalNotesText += "requires 6 extra unused City Cards, 2 for each era\n"
+        }
+        
+        debugPrint(finalNotesText)
         return finalNotesText
     }
 }

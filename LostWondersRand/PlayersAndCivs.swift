@@ -13,6 +13,7 @@ class PlayersAndCivs: ObservableObject {
     @Published var players = [String](repeating: "", count: 10)
     @Published var civs = [String](repeating: "", count: 10)
     @Published var wonderBundles: Set = [WonderBundle.original]
+    @Published var notes = ""
     @Published var teams = false
     @Published var cities: Bool = false {
         willSet {
@@ -92,7 +93,7 @@ class PlayersAndCivs: ObservableObject {
     
     func generateCivs() {
         if self.actualPlayerNum > 2 {
-            self.civs = Generator.generate(
+            (self.civs,self.notes) = Generator.generate(
                 playerNum: self.actualPlayerNum,
                 bundles: self.wonderBundles,
                 teams: self.teams)

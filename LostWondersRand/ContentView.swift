@@ -54,12 +54,11 @@ struct ContentView: View {
                         .frame(height: 44)
                     }
                     HStack {
-                        Text("Test \n newline \n another new line jfkdls;ajfklds;ajfkdl;asjfkdlajki")
+                        Text(self.playersAndCivs.notes)
                             .multilineTextAlignment(.leading)
                             .padding()
                         Spacer()
                     }
-                    .hidden()
 
 
                 }
