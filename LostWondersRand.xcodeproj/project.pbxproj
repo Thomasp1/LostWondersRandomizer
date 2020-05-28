@@ -22,6 +22,8 @@
 		8844C3F5246B1BC2003C0002 /* BundleExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8844C3F4246B1BC2003C0002 /* BundleExtension.swift */; };
 		8844C3F7246B2B0D003C0002 /* Generator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8844C3F6246B2B0D003C0002 /* Generator.swift */; };
 		8844C3F9246B2C97003C0002 /* Wonder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8844C3F8246B2C97003C0002 /* Wonder.swift */; };
+		886031FD24801E5F00E38292 /* SoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886031FC24801E5F00E38292 /* SoundManager.swift */; };
+		8860320024801EC700E38292 /* chronosound.caf in Resources */ = {isa = PBXBuildFile; fileRef = 886031FF24801EC700E38292 /* chronosound.caf */; };
 		8869EF5E2464193E00054A25 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8869EF5D2464193E00054A25 /* AppDelegate.swift */; };
 		8869EF602464193E00054A25 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8869EF5F2464193E00054A25 /* SceneDelegate.swift */; };
 		8869EF632464193E00054A25 /* LostWondersRand.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8869EF612464193E00054A25 /* LostWondersRand.xcdatamodeld */; };
@@ -66,6 +68,8 @@
 		8844C3F4246B1BC2003C0002 /* BundleExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BundleExtension.swift; sourceTree = "<group>"; };
 		8844C3F6246B2B0D003C0002 /* Generator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Generator.swift; sourceTree = "<group>"; };
 		8844C3F8246B2C97003C0002 /* Wonder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wonder.swift; sourceTree = "<group>"; };
+		886031FC24801E5F00E38292 /* SoundManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundManager.swift; sourceTree = "<group>"; };
+		886031FF24801EC700E38292 /* chronosound.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = chronosound.caf; sourceTree = "<group>"; };
 		8869EF5A2464193E00054A25 /* LostWondersRand.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LostWondersRand.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8869EF5D2464193E00054A25 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8869EF5F2464193E00054A25 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -140,6 +144,14 @@
 			path = JSON;
 			sourceTree = "<group>";
 		};
+		886031FE24801EB400E38292 /* Sound */ = {
+			isa = PBXGroup;
+			children = (
+				886031FF24801EC700E38292 /* chronosound.caf */,
+			);
+			path = Sound;
+			sourceTree = "<group>";
+		};
 		8869EF512464193E00054A25 = {
 			isa = PBXGroup;
 			children = (
@@ -163,6 +175,7 @@
 		8869EF5C2464193E00054A25 /* LostWondersRand */ = {
 			isa = PBXGroup;
 			children = (
+				886031FE24801EB400E38292 /* Sound */,
 				883959A7247C3E0B0089686D /* Styles */,
 				8844C3E3246B177A003C0002 /* JSON */,
 				8844C3DE246AD42E003C0002 /* Extensions */,
@@ -178,6 +191,7 @@
 				8844C3F6246B2B0D003C0002 /* Generator.swift */,
 				8844C3F8246B2C97003C0002 /* Wonder.swift */,
 				88434D05246C2AB30027A867 /* PlayersAndCivs.swift */,
+				886031FC24801E5F00E38292 /* SoundManager.swift */,
 			);
 			path = LostWondersRand;
 			sourceTree = "<group>";
@@ -321,6 +335,7 @@
 				8844C3F2246B17A4003C0002 /* LeadersWonder.json in Resources */,
 				8844C3EE246B17A4003C0002 /* CitiesWonders.json in Resources */,
 				8844C3EC246B17A4003C0002 /* OriginalWonders.json in Resources */,
+				8860320024801EC700E38292 /* chronosound.caf in Resources */,
 				8844C3F0246B17A4003C0002 /* WonderPackWonders.json in Resources */,
 				8844C3ED246B17A4003C0002 /* LostWonders.json in Resources */,
 			);
@@ -352,6 +367,7 @@
 				8869EF5E2464193E00054A25 /* AppDelegate.swift in Sources */,
 				8844C3F9246B2C97003C0002 /* Wonder.swift in Sources */,
 				8869EF602464193E00054A25 /* SceneDelegate.swift in Sources */,
+				886031FD24801E5F00E38292 /* SoundManager.swift in Sources */,
 				8844C3E0246AD446003C0002 /* StringExtension.swift in Sources */,
 				8869EF652464193E00054A25 /* ContentView.swift in Sources */,
 				8844C3F7246B2B0D003C0002 /* Generator.swift in Sources */,
