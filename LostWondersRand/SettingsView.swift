@@ -45,6 +45,19 @@ struct SettingsView: View {
                     Text("Lost Wonders 2")
                 }
             }
+            Section {
+                VStack {
+                    HStack {
+                        Spacer()
+                        Image("Seven_Blunders")
+                        Spacer()
+                    }
+                    Text(creditsString)
+                        .multilineTextAlignment(.center)
+                    
+                }
+            }
+                	
         }
         .navigationBarTitle(Text("Settings"),displayMode: .inline)
     }
@@ -56,3 +69,15 @@ struct SettingsView_Previews: PreviewProvider {
         SettingsView().environmentObject(playersAndCivs)
     }
 }
+
+let creditsString = """
+Created by Thomas Piechula\n
+with special thanks to
+Angelika Postaremczak
+for the original idea\n
+and the rest of my friends who
+supported my board games addiction:
+Jakub Darowski, Ola Czampiel
+Michal Golda, Lukasz Lampart
+Alice Gurska, Michal Troszek
+"""

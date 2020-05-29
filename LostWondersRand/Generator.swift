@@ -126,11 +126,17 @@ class Generator {
                     //remove wonder copying wonders
                     remainingChoiceWonders = remainingChoiceWonders.filter { !(self.wondercopyWonders.contains($0.key)) }
                     //remove copying incompatible wonders
+                    if temporalParadoxChosen {
+                        temporalRescue = remainingChoiceWonders.filter { (self.wondercopyIncompatibleWonders.contains($0.key)) }
+                    }
                     remainingChoiceWonders = remainingChoiceWonders.filter { !(self.wondercopyIncompatibleWonders.contains($0.key)) }
                 }
                 
                 //if no normal wonders are chosen yet to neighbour the wondercopy wonders, we should stop getting more incompatible wonders
                 if ((wondercopyNum * 2) + 1) + incompatibleNum == playerNum {
+                    if temporalParadoxChosen {
+                        temporalRescue = remainingChoiceWonders.filter { (self.wondercopyIncompatibleWonders.contains($0.key)) }
+                    }
                     remainingChoiceWonders = remainingChoiceWonders.filter { !(self.wondercopyIncompatibleWonders.contains($0.key)) }
                 }
                 
@@ -148,12 +154,18 @@ class Generator {
                 
                 if troubleWondersNum == playerNum / 2 {
                     remainingChoiceWonders = remainingChoiceWonders.filter { !(self.wondercopyWonders.contains($0.key)) }
+                    if temporalParadoxChosen {
+                        temporalRescue = remainingChoiceWonders.filter { (self.wondercopyIncompatibleWonders.contains($0.key)) }
+                    }
                     remainingChoiceWonders = remainingChoiceWonders.filter { !(self.wondercopyIncompatibleWonders.contains($0.key)) }
                 }
                 
                 if wondercopyNum != 0 {
                     //if no normal wonders are chosen yet to neighbour the wondercopy wonders, we should stop getting more incompatible wonders
                     if ((wondercopyNum * 2) + 1) + incompatibleNum == playerNum {
+                        if temporalParadoxChosen {
+                            temporalRescue = remainingChoiceWonders.filter { (self.wondercopyIncompatibleWonders.contains($0.key)) }
+                        }
                         remainingChoiceWonders = remainingChoiceWonders.filter { !(self.wondercopyIncompatibleWonders.contains($0.key)) }
                     }
                 } else {
@@ -177,13 +189,18 @@ class Generator {
         
         var temporalChosen = [String]()
         if finalWondersChosen["Temporal Paradox"] != nil {
-            if let temporalChoiceOne = remainingChoiceWonders.randomElement() {
+            debugPrint("temporalRescue: \(temporalRescue.keys)")
+            var temporalChoices: [String:Wonder] = remainingChoiceWonders.merging(temporalRescue) { (current,_) in current }
+            debugPrint("temporalChoices: \(temporalChoices.keys)")
+            if let temporalChoiceOne = temporalChoices.randomElement() {
                 temporalChosen.append(temporalChoiceOne.key)
                 remainingChoiceWonders.removeValue(forKey: temporalChoiceOne.key)
+                temporalChoices.removeValue(forKey: temporalChoiceOne.key)
             }
-            if let temporalChoiceTwo = remainingChoiceWonders.randomElement() {
+            if let temporalChoiceTwo = temporalChoices.randomElement() {
                 temporalChosen.append(temporalChoiceTwo.key)
                 remainingChoiceWonders.removeValue(forKey: temporalChoiceTwo.key)
+                temporalChoices.removeValue(forKey: temporalChoiceTwo.key)
             }
             
         }
