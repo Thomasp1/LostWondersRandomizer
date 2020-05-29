@@ -45,6 +45,20 @@ struct SettingsView: View {
                     Text("Lost Wonders 2")
                 }
             }
+            Section {
+                VStack {
+                    HStack {
+                        Spacer()
+                        Image("Seven_Blunders")
+                        Spacer()
+                    }
+                    Text("Created by Thomas Piechula\nwith special thanks to\nAngelika Postaremczak")
+                        .multilineTextAlignment(.center)
+                    .padding()
+                    
+                }
+            }
+                	
         }
         .navigationBarTitle(Text("Settings"),displayMode: .inline)
     }
