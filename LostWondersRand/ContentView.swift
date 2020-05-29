@@ -74,41 +74,19 @@ struct ContentView: View {
                             self.showTemporal = true
                             self.playersAndCivs.playChronoSound()
                         }
-                        .padding()
-                        .font(.headline)
-                        .background(Color.init(red: 0.2, green: 0.3, blue: 0.5))
-                        .foregroundColor(Color.white)
-                        .minimumScaleFactor(0.5)
-                        .lineLimit(2)
-                        .multilineTextAlignment(.center)
-                        .clipShape(Capsule(style: .continuous) )
-                        .frame(maxWidth: .infinity)
+                        .buttonStyle(TemporalButtonStyle())
                     } else {
                         Button("Temporal Paradox") {
                             self.showTemporal = true
                         }
-                        .padding()
-                        .font(.headline)
-                        .background(Color.init(red: 0.2, green: 0.3, blue: 0.5))
-                        .foregroundColor(Color.white)
-                        .lineLimit(2)
-                        .multilineTextAlignment(.center)
-                        .clipShape(Capsule(style: .continuous) )
-                        .frame(maxWidth: .infinity)
+                        .buttonStyle(TemporalButtonStyle())
                         .hidden()
                     }
                     Button("GENERATE") {
                         self.playersAndCivs.generateCivs()
                         self.showTemporal = false
                     }
-                    .padding()
-                    .font(.headline)
-                    .background(Color.purple)
-                    .foregroundColor(Color.white)
-                    .minimumScaleFactor(0.5)
-                    .scaledToFill()
-                    .clipShape(Capsule(style: .continuous) )
-                    .frame(maxWidth: .infinity)
+                    .buttonStyle(GenerateButtonStyle())
                     Spacer()
                     .frame(maxWidth: .infinity)
                 }
@@ -126,3 +104,4 @@ struct ContentView_Previews: PreviewProvider {
         ContentView().environmentObject(playersAndCivs)
     }
 }
+
