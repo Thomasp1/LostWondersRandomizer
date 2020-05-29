@@ -52,9 +52,8 @@ struct SettingsView: View {
                         Image("Seven_Blunders")
                         Spacer()
                     }
-                    Text("Created by Thomas Piechula\nwith special thanks to\nAngelika Postaremczak")
+                    Text(creditsString)
                         .multilineTextAlignment(.center)
-                    .padding()
                     
                 }
             }
@@ -70,3 +69,15 @@ struct SettingsView_Previews: PreviewProvider {
         SettingsView().environmentObject(playersAndCivs)
     }
 }
+
+let creditsString = """
+Created by Thomas Piechula\n
+with special thanks to
+Angelika Postaremczak
+for the original idea\n
+and the rest of my friends who
+supported my board games addiction:
+Jakub Darowski, Ola Czampiel
+Michal Golda, Lukasz Lampart
+Alice Gurska, Michal Troszek
+"""
