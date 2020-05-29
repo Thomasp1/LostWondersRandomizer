@@ -91,6 +91,12 @@ class PlayersAndCivs: ObservableObject {
         return self.civs.contains("Temporal Paradox")
     }
     
+    private var soundManager = SoundManager()
+    
+    func playChronoSound() {
+        soundManager.playChronoSound()
+    }
+    
     func generateCivs() {
         if self.actualPlayerNum > 2 {
             (self.civs,self.notes) = Generator.generate(

@@ -72,7 +72,7 @@ struct ContentView: View {
                     if playersAndCivs.temporalAvailable && !showTemporal {
                         Button("Temporal\nParadox") {
                             self.showTemporal = true
-                            SoundManager.shared.playChronoSound()
+                            self.playersAndCivs.playChronoSound()
                         }
                         .padding()
                         .font(.headline)

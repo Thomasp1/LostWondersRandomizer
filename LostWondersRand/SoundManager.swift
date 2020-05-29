@@ -13,9 +13,6 @@ class SoundManager {
     
     var chronoSoundEffect: AVAudioPlayer?
     
-    static let shared = SoundManager()
-    private init() { }
-    
     func playChronoSound() {
         guard let path = Bundle.main.path(forResource: "chronosound.caf", ofType: nil) else { return }
         let url = URL(fileURLWithPath: path)
