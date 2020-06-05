@@ -40,12 +40,56 @@ enum WonderBundle {
     }
 }
 
+enum CardColor: String {
+    case red
+    case blue
+    case yellow
+    case green
+    case brown
+    case black
+    case purple
+    
+    var associatedPowers: [String] {
+        switch self {
+        case .red:
+            return ["Victory Points for Shields","Shields","Coin for Red Card","Victory Points for Red Card"]
+        case .blue:
+            return ["Coin for Blue Card","Victory Points for Blue Card"]
+        case .yellow:
+            return ["Victory Points for Yellow Card","Double Coins for Yellow Card","Double Victory Points for Yellow Card","Coin for Yellow Card"]
+        case .green:
+            return ["Coin for Green Card","Money for Green Cards Stage 2","Victory Points for Green Card","Victory Points for Science Set","Convert Science Symbol","Science Choice"]
+        case .brown:
+            return ["Coin for Brown Card","Victory Points for Brown Card"]
+        case .black:
+            return ["Black Card Discount","Draw Black Card Build Free"]
+        case .purple:
+            return ["Purple Card Discount","Victory Points for Purple Card","Draw Purple Card Build Free","Purple Build Discard Build Free","Count Self Cards for Guild"]
+        }
+    }
+    
+    static var allValues: [CardColor] {
+        var allValues: [CardColor] = []
+        switch (CardColor.red) {
+        case .red: allValues.append(.red);fallthrough
+        case .blue: allValues.append(.blue);fallthrough
+        case .yellow: allValues.append(.yellow);fallthrough
+        case .green: allValues.append(.green);fallthrough
+        case .brown: allValues.append(.brown);fallthrough
+        case .black: allValues.append(.black);fallthrough
+        case .purple: allValues.append(.purple);
+        }
+        return allValues
+    }
+}
+
 class Generator {
     
     private static var combinedWonders = [String:Wonder]()
     private static var remainingChoiceWonders = [String:Wonder]()
     private static var finalWondersChosen = [String:Wonder]()
     private static var startingResourceCounter = [String:Int]()
+    private static var cardColorThemeCounter = NSCountedSet()
     
     //civ that can't be in a game with any civs that has wonder-copying ability, whatsoever
     static let stupidWonders = ["Nomades"]
@@ -60,6 +104,7 @@ class Generator {
         remainingChoiceWonders.removeAll()
         finalWondersChosen.removeAll()
         startingResourceCounter.removeAll()
+        cardColorThemeCounter.removeAllObjects()
         
         //add enabled bundles
         bundles.forEach {
@@ -298,6 +343,24 @@ class Generator {
         }
         return remainingWonders
         
+    }
+    
+    private static func filterCardPowers(remainingWonders: inout [String:Wonder], chosenWonder: String) {
+        var wonderThemeCounter = [CardColor:Bool]()
+        
+        guard var chosenPowersA = combinedWonders[chosenWonder]?.a.theme,
+            var chosenPowersB = combinedWonders[chosenWonder]?.b.theme else {
+            return
+        }
+        let combinedPowers = chosenPowersA + chosenPowersB
+        
+        wonderThemeCounter[CardColor.red] = combinedPowers.contains(where: CardColor.red.associatedPowers.contains)
+        wonderThemeCounter[CardColor.blue] = combinedPowers.contains(where: CardColor.blue.associatedPowers.contains)
+        wonderThemeCounter[CardColor.yellow] = combinedPowers.contains(where: CardColor.yellow.associatedPowers.contains)
+        wonderThemeCounter[CardColor.green] = combinedPowers.contains(where: CardColor.green.associatedPowers.contains)
+        wonderThemeCounter[CardColor.brown] = combinedPowers.contains(where: CardColor.brown.associatedPowers.contains)
+        wonderThemeCounter[CardColor.black] = combinedPowers.contains(where: CardColor.black.associatedPowers.contains)
+        wonderThemeCounter[CardColor.purple] = combinedPowers.contains(where: CardColor.purple.associatedPowers.contains)
     }
     
     private static func getNotes(chosenWonders: [String:Wonder]) -> String {
