@@ -32,9 +32,10 @@ currently, this app is "side-agnostic", so you can choose which side of a Wonder
 * adding Wonders from different expansions
 * generating list of Wonders compatible with Wonder-copying Wonders
 * filtering Wonders based on teamplay, expansions, player count, and starting resources
+* filtering based on card color "theme"
 * special feature for Temporal Paradox :)
 
 ## TODO:
 * remake UI with table cells
-* filtering based on card color "theme"
+
 
