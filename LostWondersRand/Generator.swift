@@ -98,7 +98,7 @@ class Generator {
     //civs that cannot be next to a civ with wonder-copying ability
     static let wondercopyIncompatibleWonders = ["Atlantis","Chichen Itza","Ephyra","Tartaros","Temporal Paradox","Uruk","Dominion","Antiocheia","Helvetia","Petra","Brigadoon","Elysion Pedion"]
     
-    static func generate(playerNum: Int, bundles: Set<WonderBundle>, teams: Bool) -> ([String],String) {
+    static func generate(playerNum: Int, bundles: Set<WonderBundle>, teams: Bool, startingResourceFilter: Bool ,cardColorFilter: Bool) -> ([String],String) {
         
         combinedWonders.removeAll()
         remainingChoiceWonders.removeAll()
@@ -227,16 +227,21 @@ class Generator {
             }
             
             if bundles.contains(WonderBundle.lostWonders) || bundles.contains(WonderBundle.lostWonders2) {
-                remainingChoiceWonders = filterStartingResources(remainingWonders: &remainingChoiceWonders, chosenWonder: selectedWonder.key)
+                if startingResourceFilter {
+                    remainingChoiceWonders = filterStartingResources(remainingWonders: &remainingChoiceWonders, chosenWonder: selectedWonder.key)
+                }
+                if cardColorFilter {
+                    remainingChoiceWonders = filterCardPowers(remainingWonders: &remainingChoiceWonders, chosenWonder: selectedWonder.key)
+                }
             }
             
         }
         
         var temporalChosen = [String]()
         if finalWondersChosen["Temporal Paradox"] != nil {
-            debugPrint("temporalRescue: \(temporalRescue.keys)")
+            //debugPrint("temporalRescue: \(temporalRescue.keys)")
             var temporalChoices: [String:Wonder] = remainingChoiceWonders.merging(temporalRescue) { (current,_) in current }
-            debugPrint("temporalChoices: \(temporalChoices.keys)")
+            //debugPrint("temporalChoices: \(temporalChoices.keys)")
             if let temporalChoiceOne = temporalChoices.randomElement() {
                 temporalChosen.append(temporalChoiceOne.key)
                 remainingChoiceWonders.removeValue(forKey: temporalChoiceOne.key)
@@ -263,6 +268,7 @@ class Generator {
         debugPrint("finalWonderString: \(finalWondersString)")
         debugPrint("temporalChosen: \(temporalChosen)")
         debugPrint("resourceCounter: \(startingResourceCounter)")
+        cardColorThemeCounter.forEach { debugPrint("\($0): \(cardColorThemeCounter.count(for: $0))") }
         
         let finalStringArray = finalWondersString + temporalChosen
         let notes = getNotes(chosenWonders: finalWondersChosen)
@@ -291,16 +297,16 @@ class Generator {
         if startingResourceCounter[resourceNameA] == 3 {
             remainingWonders.keys.forEach {
                 if let wr = remainingWonders[$0]?.a.resource {
-                    debugPrint("wr: \(wr)")
+                    //debugPrint("wr: \(wr)")
                     if wr.contains(",") {
                         let resourceSplitArray = wr.split(separator: ",")
-                        debugPrint("splitArray: \(resourceSplitArray)")
+                        //debugPrint("splitArray: \(resourceSplitArray)")
                         if resourceNameA == resourceSplitArray[0] || resourceNameA == resourceSplitArray[1] {
                             remainingWonders[$0] = nil
                         }
                     } else if wr.contains("/") {
                         let resourceSplitArray = wr.split(separator: "/")
-                        debugPrint("splitArray: \(resourceSplitArray)")
+                        //debugPrint("splitArray: \(resourceSplitArray)")
                         if resourceNameA == resourceSplitArray[0] || resourceNameA == resourceSplitArray[1] {
                             remainingWonders[$0] = nil
                         }
@@ -318,16 +324,16 @@ class Generator {
             if startingResourceCounter[resourceNameB] == 3 {
                 remainingWonders.keys.forEach {
                     if let wr = remainingWonders[$0]?.b.resource {
-                        debugPrint("wr: \(wr)")
+                        //debugPrint("wr: \(wr)")
                         if wr.contains(",") {
                             let resourceSplitArray = wr.split(separator: ",")
-                            debugPrint("splitArray: \(resourceSplitArray)")
+                            //debugPrint("splitArray: \(resourceSplitArray)")
                             if resourceNameB == resourceSplitArray[0] || resourceNameB == resourceSplitArray[1] {
                                 remainingWonders[$0] = nil
                             }
                         } else if wr.contains("/") {
                             let resourceSplitArray = wr.split(separator: "/")
-                            debugPrint("splitArray: \(resourceSplitArray)")
+                            //debugPrint("splitArray: \(resourceSplitArray)")
                             if resourceNameB == resourceSplitArray[0] || resourceNameB == resourceSplitArray[1] {
                                 remainingWonders[$0] = nil
                             }
@@ -345,22 +351,37 @@ class Generator {
         
     }
     
-    private static func filterCardPowers(remainingWonders: inout [String:Wonder], chosenWonder: String) {
+    private static func filterCardPowers(remainingWonders: inout [String:Wonder], chosenWonder: String) -> [String:Wonder]  {
         var wonderThemeCounter = [CardColor:Bool]()
         
-        guard var chosenPowersA = combinedWonders[chosenWonder]?.a.theme,
-            var chosenPowersB = combinedWonders[chosenWonder]?.b.theme else {
-            return
+        guard let chosenPowersA = combinedWonders[chosenWonder]?.a.theme,
+            let chosenPowersB = combinedWonders[chosenWonder]?.b.theme else {
+            return remainingWonders
         }
         let combinedPowers = chosenPowersA + chosenPowersB
         
-        wonderThemeCounter[CardColor.red] = combinedPowers.contains(where: CardColor.red.associatedPowers.contains)
-        wonderThemeCounter[CardColor.blue] = combinedPowers.contains(where: CardColor.blue.associatedPowers.contains)
-        wonderThemeCounter[CardColor.yellow] = combinedPowers.contains(where: CardColor.yellow.associatedPowers.contains)
-        wonderThemeCounter[CardColor.green] = combinedPowers.contains(where: CardColor.green.associatedPowers.contains)
-        wonderThemeCounter[CardColor.brown] = combinedPowers.contains(where: CardColor.brown.associatedPowers.contains)
-        wonderThemeCounter[CardColor.black] = combinedPowers.contains(where: CardColor.black.associatedPowers.contains)
-        wonderThemeCounter[CardColor.purple] = combinedPowers.contains(where: CardColor.purple.associatedPowers.contains)
+        CardColor.allValues.forEach {
+            wonderThemeCounter[$0] = combinedPowers.contains(where: $0.associatedPowers.contains)
+        }
+        
+        wonderThemeCounter.forEach {
+            if $0.value {
+                cardColorThemeCounter.add($0.key)
+                if cardColorThemeCounter.count(for: $0.key) >= 2 {
+                    debugPrint("cardColor \($0) >= 2")
+                    for wonder in remainingWonders.keys {
+                        if let themeA = remainingWonders[wonder]?.a.theme, let themeB = remainingWonders[wonder]?.b.theme {
+                            let wonderThemes = themeA + themeB
+                            if wonderThemes.contains(where: $0.key.associatedPowers.contains) {
+                                debugPrint("cardColor \($0): removed \(wonder)")
+                                remainingWonders[wonder] = nil
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        return remainingWonders
     }
     
     private static func getNotes(chosenWonders: [String:Wonder]) -> String {
