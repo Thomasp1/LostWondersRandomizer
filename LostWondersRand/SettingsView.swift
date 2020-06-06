@@ -44,6 +44,14 @@ struct SettingsView: View {
                 Toggle(isOn: $playersAndCivs.lostWonders2.animation()) {
                     Text("Lost Wonders 2")
                 }
+                if playersAndCivs.lostWonders || playersAndCivs.lostWonders2 {
+                    Toggle(isOn: $playersAndCivs.startingResourceFiltering.animation()) {
+                        Text("Duplicate Starting Resources Limit")
+                    }
+                    Toggle(isOn: $playersAndCivs.cardColorThemeFiltering.animation()) {
+                        Text("Card Color Wonder Theme Limit")
+                    }
+                }
             }
             Section {
                 VStack {

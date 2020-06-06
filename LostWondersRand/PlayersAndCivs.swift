@@ -74,6 +74,8 @@ class PlayersAndCivs: ObservableObject {
             }
         }
     }
+    @Published var startingResourceFiltering: Bool = true
+    @Published var cardColorThemeFiltering: Bool = true
     
     var actualPlayerNum: Int {
         return self.players.filter{ $0 != "" }.count
@@ -102,7 +104,9 @@ class PlayersAndCivs: ObservableObject {
             (self.civs,self.notes) = Generator.generate(
                 playerNum: self.actualPlayerNum,
                 bundles: self.wonderBundles,
-                teams: self.teams)
+                teams: self.teams,
+                startingResourceFilter: self.startingResourceFiltering,
+                cardColorFilter: self.cardColorThemeFiltering)
         }
     }
     
