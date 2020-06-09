@@ -11,10 +11,11 @@ import SwiftUI
 struct ContentView: View {
     @EnvironmentObject var playersAndCivs: PlayersAndCivs
     @State var showTemporal = false
+    @State private var editMode = EditMode.inactive
     var body: some View {
         NavigationView {
             VStack {
-                ScrollView {
+                List {
                     ForEach(0..<7) { playerNum in
                         HStack(alignment: .center, spacing: 4) {
                             TextField("Player \(playerNum+1)", text: self.$playersAndCivs.players[playerNum])
@@ -53,20 +54,30 @@ struct ContentView: View {
                         .padding()
                         .frame(height: 44)
                     }
-                    HStack {
-                        Text(self.playersAndCivs.notes)
-                            .multilineTextAlignment(.leading)
-                            .padding()
-                        Spacer()
+                    if !self.playersAndCivs.notes.isEmpty {
+                        HStack {
+                            Text(self.playersAndCivs.notes)
+                                .multilineTextAlignment(.leading)
+                                .padding()
+                        }
                     }
 
 
                 }
                 .background(Color.white)
-                
-                .navigationBarItems(trailing: NavigationLink(destination: SettingsView()){
-                    Text("Settings")
-                })
+                .listStyle(GroupedListStyle())
+                .environment(\.editMode, $editMode)
+                .navigationBarItems(
+                    leading:
+                    HStack {
+                        EditButton()
+                        addButton
+                    },
+                                    trailing:
+                    NavigationLink(destination: SettingsView()){
+                        Text("Settings")
+                    }
+                )
                 Spacer(minLength: 12)
                 HStack(alignment: .center) {
                     if playersAndCivs.temporalAvailable && !showTemporal {
@@ -95,6 +106,20 @@ struct ContentView: View {
             }
             .background(Color.init(.lightGray))
         }
+    }
+    private var addButton: some View {
+        switch editMode {
+        case .inactive:
+            return AnyView(Button(action: onAdd) { Image(systemName: "plus") })
+        default:
+            return AnyView(EmptyView())
+        }
+    }
+    func onAdd() {
+        
+    }
+    private func onDelete(offsets: IndexSet) {
+        
     }
 }
 

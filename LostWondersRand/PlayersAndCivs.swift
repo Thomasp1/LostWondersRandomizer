@@ -10,6 +10,7 @@ import Foundation
 import SwiftUI
 
 class PlayersAndCivs: ObservableObject {
+    @Published var items: [PlayerCivItem] = (0..<3).map { PlayerCivItem(name: "Player \($0)", civ: "civ") }
     @Published var players = [String](repeating: "", count: 10)
     @Published var civs = [String](repeating: "", count: 10)
     @Published var wonderBundles: Set = [WonderBundle.original]
