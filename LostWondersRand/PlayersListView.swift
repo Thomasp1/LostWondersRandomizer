@@ -9,10 +9,16 @@
 import Foundation
 import SwiftUI
 
-struct PlayerCivItem: Identifiable {
-    let id = UUID()
-    var name: String
-    var civ: String
+class PlayerCivItem: ObservableObject, Identifiable {
+    
+    @Published var name: String = ""
+    @Published var civ: String = ""
+    
+    init(name: String, civ: String) {
+        self.name = name
+        self.civ = civ
+    }
+    
 }
 
 
@@ -26,12 +32,7 @@ struct PlayersListView: View {
         NavigationView {
             List {
                 ForEach(playersAndCivs.items) { item in
-                    HStack(alignment: .center, spacing: 4) {
-                        TextField(item.name, text: self.$playersAndCivs.players[0])
-                        Text(item.civ)
-                        .lineLimit(1)
-                        .fixedSize(horizontal: false, vertical: true)
-                    }
+                    PlayerListCell(viewModel: item)
                 }
                 .onDelete(perform: onDelete)
                 .onMove(perform: onMove)

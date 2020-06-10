@@ -23,6 +23,7 @@
 		8844C3F5246B1BC2003C0002 /* BundleExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8844C3F4246B1BC2003C0002 /* BundleExtension.swift */; };
 		8844C3F7246B2B0D003C0002 /* Generator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8844C3F6246B2B0D003C0002 /* Generator.swift */; };
 		8844C3F9246B2C97003C0002 /* Wonder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8844C3F8246B2C97003C0002 /* Wonder.swift */; };
+		884C3FBB2490470F00D02F4D /* PlayerListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884C3FBA2490470F00D02F4D /* PlayerListCell.swift */; };
 		885EE60E248D5C4600B8B6B7 /* PlayersListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 885EE60D248D5C4600B8B6B7 /* PlayersListView.swift */; };
 		886031FD24801E5F00E38292 /* SoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886031FC24801E5F00E38292 /* SoundManager.swift */; };
 		8860320024801EC700E38292 /* chronosound.caf in Resources */ = {isa = PBXBuildFile; fileRef = 886031FF24801EC700E38292 /* chronosound.caf */; };
@@ -71,6 +72,7 @@
 		8844C3F4246B1BC2003C0002 /* BundleExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BundleExtension.swift; sourceTree = "<group>"; };
 		8844C3F6246B2B0D003C0002 /* Generator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Generator.swift; sourceTree = "<group>"; };
 		8844C3F8246B2C97003C0002 /* Wonder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wonder.swift; sourceTree = "<group>"; };
+		884C3FBA2490470F00D02F4D /* PlayerListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerListCell.swift; sourceTree = "<group>"; };
 		885EE60D248D5C4600B8B6B7 /* PlayersListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayersListView.swift; sourceTree = "<group>"; };
 		886031FC24801E5F00E38292 /* SoundManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundManager.swift; sourceTree = "<group>"; };
 		886031FF24801EC700E38292 /* chronosound.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = chronosound.caf; sourceTree = "<group>"; };
@@ -149,6 +151,14 @@
 			path = JSON;
 			sourceTree = "<group>";
 		};
+		884C3FB9249046F700D02F4D /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				884C3FBA2490470F00D02F4D /* PlayerListCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		886031FE24801EB400E38292 /* Sound */ = {
 			isa = PBXGroup;
 			children = (
@@ -180,6 +190,7 @@
 		8869EF5C2464193E00054A25 /* LostWondersRand */ = {
 			isa = PBXGroup;
 			children = (
+				884C3FB9249046F700D02F4D /* Cells */,
 				886031FE24801EB400E38292 /* Sound */,
 				883959A7247C3E0B0089686D /* Styles */,
 				8844C3E3246B177A003C0002 /* JSON */,
@@ -371,6 +382,7 @@
 				8844C3E2246ADFFC003C0002 /* SettingsView.swift in Sources */,
 				88434D06246C2AB30027A867 /* PlayersAndCivs.swift in Sources */,
 				8869EF5E2464193E00054A25 /* AppDelegate.swift in Sources */,
+				884C3FBB2490470F00D02F4D /* PlayerListCell.swift in Sources */,
 				8844C3F9246B2C97003C0002 /* Wonder.swift in Sources */,
 				8869EF602464193E00054A25 /* SceneDelegate.swift in Sources */,
 				886031FD24801E5F00E38292 /* SoundManager.swift in Sources */,
