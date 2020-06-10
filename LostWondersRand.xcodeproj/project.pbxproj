@@ -36,6 +36,8 @@
 		8869EF6D2464193F00054A25 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8869EF6B2464193F00054A25 /* LaunchScreen.storyboard */; };
 		8869EF782464193F00054A25 /* LostWondersRandTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8869EF772464193F00054A25 /* LostWondersRandTests.swift */; };
 		8869EF832464193F00054A25 /* LostWondersRandUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8869EF822464193F00054A25 /* LostWondersRandUITests.swift */; };
+		88A70EA52491191C00AAC011 /* AppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A70EA42491191C00AAC011 /* AppView.swift */; };
+		88A70EA724912A7000AAC011 /* TemporalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A70EA624912A7000AAC011 /* TemporalCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -91,6 +93,8 @@
 		8869EF7E2464193F00054A25 /* LostWondersRandUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LostWondersRandUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8869EF822464193F00054A25 /* LostWondersRandUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LostWondersRandUITests.swift; sourceTree = "<group>"; };
 		8869EF842464193F00054A25 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		88A70EA42491191C00AAC011 /* AppView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppView.swift; sourceTree = "<group>"; };
+		88A70EA624912A7000AAC011 /* TemporalCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemporalCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,6 +159,7 @@
 			isa = PBXGroup;
 			children = (
 				884C3FBA2490470F00D02F4D /* PlayerListCell.swift */,
+				88A70EA624912A7000AAC011 /* TemporalCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -209,6 +214,7 @@
 				88434D05246C2AB30027A867 /* PlayersAndCivs.swift */,
 				886031FC24801E5F00E38292 /* SoundManager.swift */,
 				885EE60D248D5C4600B8B6B7 /* PlayersListView.swift */,
+				88A70EA42491191C00AAC011 /* AppView.swift */,
 			);
 			path = LostWondersRand;
 			sourceTree = "<group>";
@@ -380,9 +386,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				8844C3E2246ADFFC003C0002 /* SettingsView.swift in Sources */,
+				88A70EA724912A7000AAC011 /* TemporalCell.swift in Sources */,
 				88434D06246C2AB30027A867 /* PlayersAndCivs.swift in Sources */,
 				8869EF5E2464193E00054A25 /* AppDelegate.swift in Sources */,
 				884C3FBB2490470F00D02F4D /* PlayerListCell.swift in Sources */,
+				88A70EA52491191C00AAC011 /* AppView.swift in Sources */,
 				8844C3F9246B2C97003C0002 /* Wonder.swift in Sources */,
 				8869EF602464193E00054A25 /* SceneDelegate.swift in Sources */,
 				886031FD24801E5F00E38292 /* SoundManager.swift in Sources */,

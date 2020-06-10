@@ -10,7 +10,7 @@ import Foundation
 import SwiftUI
 
 class PlayersAndCivs: ObservableObject {
-    @Published var items: [PlayerCivItem] = (0..<3).map { PlayerCivItem(name: "Player \($0)", civ: "civ") }
+    @Published var items: [PlayerCivItem] = (1..<4).map { PlayerCivItem(name: "Player \($0)", civ: "civ") }
     @Published var players = [String](repeating: "", count: 10)
     @Published var civs = [String](repeating: "", count: 10)
     @Published var wonderBundles: Set = [WonderBundle.original]
@@ -113,5 +113,28 @@ class PlayersAndCivs: ObservableObject {
     
     func changePlayer(at: Int, name: String) {
         players[at] = name
+    }
+    
+    private let playerNumMin = 3
+    private let playerNumMax = 8
+    
+    var disableDelete: Bool {
+        return items.count <= playerNumMin
+    }
+    
+    func onAdd() {
+        if items.count < playerNumMax {
+            items.append(PlayerCivItem(name: "Player \(items.count + 1)", civ: "civ"))
+        }
+    }
+    
+    func onDelete(offsets: IndexSet) {
+        if items.count > playerNumMin {
+            items.remove(atOffsets: offsets)
+        }
+    }
+    
+    func onMove(source: IndexSet, destination: Int) {
+        items.move(fromOffsets: source, toOffset: destination)
     }
 }

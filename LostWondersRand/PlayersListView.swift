@@ -24,44 +24,37 @@ class PlayerCivItem: ObservableObject, Identifiable {
 
 struct PlayersListView: View {
     @EnvironmentObject var playersAndCivs: PlayersAndCivs
-    @State private var items: [PlayerCivItem] = (0..<5).map { PlayerCivItem(name: "Player \($0)", civ: "civ") }
     @State private var editMode = EditMode.inactive
-    private static var count = 0
-    
     var body: some View {
         NavigationView {
             List {
                 ForEach(playersAndCivs.items) { item in
                     PlayerListCell(viewModel: item)
                 }
-                .onDelete(perform: onDelete)
-                .onMove(perform: onMove)
+                .onDelete(perform: playersAndCivs.onDelete)
+                .onMove(perform: playersAndCivs.onMove)
+                .deleteDisabled(
+                    playersAndCivs.disableDelete
+                )
             }
-            .navigationBarItems(leading: EditButton(), trailing: addButton)
+            .navigationBarItems(
+                leading:
+                EditButton()
+                ,
+                trailing:
+                settingsOrAdd
+            )
             .environment(\.editMode, $editMode)
         }
     }
     
-    private var addButton: some View {
+    private var settingsOrAdd: some View {
         switch editMode {
         case .inactive:
-            return AnyView(Button(action: onAdd) { Image(systemName: "plus") })
+            return AnyView(NavigationLink(destination: SettingsView()){ Text("Settings") })
         default:
-            return AnyView(EmptyView())
+            return AnyView(Button(action: playersAndCivs.onAdd) { Image(systemName: "plus") })
         }
-    }
-    
-    func onAdd() {
-        items.append(PlayerCivItem(name: "Player \(Self.count)", civ: "civ"))
-        Self.count += 1
-    }
-    
-    private func onDelete(offsets: IndexSet) {
-        items.remove(atOffsets: offsets)
-    }
-    
-    private func onMove(source: IndexSet, destination: Int) {
-        items.move(fromOffsets: source, toOffset: destination)
     }
 }
 
