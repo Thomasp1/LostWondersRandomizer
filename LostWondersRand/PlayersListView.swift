@@ -25,26 +25,57 @@ class PlayerCivItem: ObservableObject, Identifiable {
 struct PlayersListView: View {
     @EnvironmentObject var playersAndCivs: PlayersAndCivs
     @State private var editMode = EditMode.inactive
+    @State var showTemporal = false
     var body: some View {
         NavigationView {
-            List {
-                ForEach(playersAndCivs.items) { item in
-                    PlayerListCell(viewModel: item)
+            VStack {
+                List {
+                    ForEach(playersAndCivs.items) { item in
+                        PlayerListCell(viewModel: item)
+                    }
+                    .onDelete(perform: playersAndCivs.onDelete)
+                    .onMove(perform: playersAndCivs.onMove)
+                    .deleteDisabled(
+                        playersAndCivs.disableDelete
+                    )
+                    if playersAndCivs.temporalAvailable && showTemporal {
+                        TemporalCell(temporalCivChoice: self.playersAndCivs.temporalChoices[0], choiceNum: 1)
+                        TemporalCell(temporalCivChoice: self.playersAndCivs.temporalChoices[1], choiceNum: 2)
+                    }
+                    if !self.playersAndCivs.notes.isEmpty {
+                        NotesCell(notes: self.playersAndCivs.notes)
+                    }
                 }
-                .onDelete(perform: playersAndCivs.onDelete)
-                .onMove(perform: playersAndCivs.onMove)
-                .deleteDisabled(
-                    playersAndCivs.disableDelete
-                )
+                .navigationBarItems(leading: EditButton(),trailing: settingsOrAdd)
+                .environment(\.editMode, $editMode)
+                .background(Color.white)
+                .listStyle(GroupedListStyle())
+                Spacer(minLength: 12)
+                HStack(alignment: .center) {
+                    if playersAndCivs.temporalAvailable && !showTemporal {
+                        Button("Temporal\nParadox") {
+                            self.showTemporal = true
+                            self.playersAndCivs.playChronoSound()
+                        }
+                        .buttonStyle(TemporalButtonStyle())
+                    } else {
+                        Button("Temporal Paradox") {
+                            self.showTemporal = true
+                        }
+                        .buttonStyle(TemporalButtonStyle())
+                        .hidden()
+                    }
+                    Button("GENERATE") {
+                        self.playersAndCivs.generateCivList()
+                        self.showTemporal = false
+                    }
+                    .buttonStyle(GenerateButtonStyle())
+                    Spacer()
+                    .frame(maxWidth: .infinity)
+                }
+                .padding(2)
+                Spacer(minLength: 12)
             }
-            .navigationBarItems(
-                leading:
-                EditButton()
-                ,
-                trailing:
-                settingsOrAdd
-            )
-            .environment(\.editMode, $editMode)
         }
     }
     

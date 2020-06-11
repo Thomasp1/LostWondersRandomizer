@@ -38,6 +38,7 @@
 		8869EF832464193F00054A25 /* LostWondersRandUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8869EF822464193F00054A25 /* LostWondersRandUITests.swift */; };
 		88A70EA52491191C00AAC011 /* AppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A70EA42491191C00AAC011 /* AppView.swift */; };
 		88A70EA724912A7000AAC011 /* TemporalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A70EA624912A7000AAC011 /* TemporalCell.swift */; };
+		88A70EAB2491779600AAC011 /* NotesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A70EAA2491779600AAC011 /* NotesCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -95,6 +96,7 @@
 		8869EF842464193F00054A25 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		88A70EA42491191C00AAC011 /* AppView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppView.swift; sourceTree = "<group>"; };
 		88A70EA624912A7000AAC011 /* TemporalCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemporalCell.swift; sourceTree = "<group>"; };
+		88A70EAA2491779600AAC011 /* NotesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,6 +162,7 @@
 			children = (
 				884C3FBA2490470F00D02F4D /* PlayerListCell.swift */,
 				88A70EA624912A7000AAC011 /* TemporalCell.swift */,
+				88A70EAA2491779600AAC011 /* NotesCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -400,6 +403,7 @@
 				8844C3F7246B2B0D003C0002 /* Generator.swift in Sources */,
 				8869EF632464193E00054A25 /* LostWondersRand.xcdatamodeld in Sources */,
 				8843449A246DC49000484D86 /* SetExtension.swift in Sources */,
+				88A70EAB2491779600AAC011 /* NotesCell.swift in Sources */,
 				8844C3F5246B1BC2003C0002 /* BundleExtension.swift in Sources */,
 				885EE60E248D5C4600B8B6B7 /* PlayersListView.swift in Sources */,
 			);
