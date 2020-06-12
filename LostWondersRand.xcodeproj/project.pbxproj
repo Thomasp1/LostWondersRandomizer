@@ -30,7 +30,6 @@
 		8869EF5E2464193E00054A25 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8869EF5D2464193E00054A25 /* AppDelegate.swift */; };
 		8869EF602464193E00054A25 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8869EF5F2464193E00054A25 /* SceneDelegate.swift */; };
 		8869EF632464193E00054A25 /* LostWondersRand.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8869EF612464193E00054A25 /* LostWondersRand.xcdatamodeld */; };
-		8869EF652464193E00054A25 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8869EF642464193E00054A25 /* ContentView.swift */; };
 		8869EF672464193F00054A25 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8869EF662464193F00054A25 /* Assets.xcassets */; };
 		8869EF6A2464193F00054A25 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8869EF692464193F00054A25 /* Preview Assets.xcassets */; };
 		8869EF6D2464193F00054A25 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8869EF6B2464193F00054A25 /* LaunchScreen.storyboard */; };
@@ -83,7 +82,6 @@
 		8869EF5D2464193E00054A25 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8869EF5F2464193E00054A25 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		8869EF622464193E00054A25 /* LostWondersRand.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = LostWondersRand.xcdatamodel; sourceTree = "<group>"; };
-		8869EF642464193E00054A25 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		8869EF662464193F00054A25 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8869EF692464193F00054A25 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		8869EF6C2464193F00054A25 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -205,7 +203,6 @@
 				8844C3DE246AD42E003C0002 /* Extensions */,
 				8869EF5D2464193E00054A25 /* AppDelegate.swift */,
 				8869EF5F2464193E00054A25 /* SceneDelegate.swift */,
-				8869EF642464193E00054A25 /* ContentView.swift */,
 				8869EF662464193F00054A25 /* Assets.xcassets */,
 				8869EF6B2464193F00054A25 /* LaunchScreen.storyboard */,
 				8869EF6E2464193F00054A25 /* Info.plist */,
@@ -399,7 +396,6 @@
 				886031FD24801E5F00E38292 /* SoundManager.swift in Sources */,
 				8844C3E0246AD446003C0002 /* StringExtension.swift in Sources */,
 				8843DD792481B6EC00C7C00D /* ButtonStyles.swift in Sources */,
-				8869EF652464193E00054A25 /* ContentView.swift in Sources */,
 				8844C3F7246B2B0D003C0002 /* Generator.swift in Sources */,
 				8869EF632464193E00054A25 /* LostWondersRand.xcdatamodeld in Sources */,
 				8843449A246DC49000484D86 /* SetExtension.swift in Sources */,
