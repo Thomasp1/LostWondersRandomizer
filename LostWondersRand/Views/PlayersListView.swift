@@ -28,7 +28,7 @@ struct PlayersListView: View {
     @State var showTemporal = false
     var body: some View {
         NavigationView {
-            VStack {
+            VStack(spacing: 0) {
                 List {
                     ForEach(playersAndCivs.items) { item in
                         PlayerListCell(viewModel: item)
@@ -50,31 +50,33 @@ struct PlayersListView: View {
                 .environment(\.editMode, $editMode)
                 .background(Color.white)
                 .listStyle(GroupedListStyle())
-                Spacer(minLength: 12)
-                HStack(alignment: .center) {
-                    if playersAndCivs.temporalAvailable && !showTemporal {
-                        Button("Temporal\nParadox") {
-                            self.showTemporal = true
-                            self.playersAndCivs.playChronoSound()
+                .navigationBarTitle("", displayMode: .inline)
+                if !editMode.isEditing {
+                    HStack(alignment: .center) {
+                        if playersAndCivs.temporalAvailable && !showTemporal {
+                            Button("Temporal\nParadox") {
+                                self.showTemporal = true
+                                self.playersAndCivs.playChronoSound()
+                            }
+                            .buttonStyle(TemporalButtonStyle())
+                        } else {
+                            Button("Temporal Paradox") {
+                                self.showTemporal = true
+                            }
+                            .buttonStyle(TemporalButtonStyle())
+                            .hidden()
                         }
-                        .buttonStyle(TemporalButtonStyle())
-                    } else {
-                        Button("Temporal Paradox") {
-                            self.showTemporal = true
+                        Button("GENERATE") {
+                            self.playersAndCivs.generateCivList()
+                            self.showTemporal = false
                         }
-                        .buttonStyle(TemporalButtonStyle())
-                        .hidden()
+                        .buttonStyle(GenerateButtonStyle())
+                        Spacer()
+                        .frame(maxWidth: .infinity)
                     }
-                    Button("GENERATE") {
-                        self.playersAndCivs.generateCivList()
-                        self.showTemporal = false
-                    }
-                    .buttonStyle(GenerateButtonStyle())
-                    Spacer()
-                    .frame(maxWidth: .infinity)
+                    .padding(2)
+                    .border(Color.gray, width: 0.25)
                 }
-                .padding(2)
-                Spacer(minLength: 12)
             }
         }
     }

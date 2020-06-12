@@ -133,14 +133,20 @@ class PlayersAndCivs: ObservableObject {
     }
     
     private let playerNumMin = 3
-    private let playerNumMax = 8
+    private var currentPlayerNumMax: Int {
+        if wonderBundles.count > 1 {
+            return 8
+        } else {
+            return 7
+        }
+    }
     
     var disableDelete: Bool {
         return items.count <= playerNumMin
     }
     
     func onAdd() {
-        if items.count < playerNumMax {
+        if items.count < currentPlayerNumMax {
             items.append(PlayerCivItem(name: "Player \(items.count + 1)", civ: ""))
         }
         clearCivs()

@@ -130,6 +130,24 @@
 			path = Styles;
 			sourceTree = "<group>";
 		};
+		88434C242493DB5100A5E81D /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				8844C3F8246B2C97003C0002 /* Wonder.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		88434C252493DB7100A5E81D /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				88A70EA42491191C00AAC011 /* AppView.swift */,
+				885EE60D248D5C4600B8B6B7 /* PlayersListView.swift */,
+				8844C3E1246ADFFC003C0002 /* SettingsView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		8844C3DE246AD42E003C0002 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -196,6 +214,8 @@
 		8869EF5C2464193E00054A25 /* LostWondersRand */ = {
 			isa = PBXGroup;
 			children = (
+				88434C252493DB7100A5E81D /* Views */,
+				88434C242493DB5100A5E81D /* Models */,
 				884C3FB9249046F700D02F4D /* Cells */,
 				886031FE24801EB400E38292 /* Sound */,
 				883959A7247C3E0B0089686D /* Styles */,
@@ -208,13 +228,9 @@
 				8869EF6E2464193F00054A25 /* Info.plist */,
 				8869EF612464193E00054A25 /* LostWondersRand.xcdatamodeld */,
 				8869EF682464193F00054A25 /* Preview Content */,
-				8844C3E1246ADFFC003C0002 /* SettingsView.swift */,
 				8844C3F6246B2B0D003C0002 /* Generator.swift */,
-				8844C3F8246B2C97003C0002 /* Wonder.swift */,
 				88434D05246C2AB30027A867 /* PlayersAndCivs.swift */,
 				886031FC24801E5F00E38292 /* SoundManager.swift */,
-				885EE60D248D5C4600B8B6B7 /* PlayersListView.swift */,
-				88A70EA42491191C00AAC011 /* AppView.swift */,
 			);
 			path = LostWondersRand;
 			sourceTree = "<group>";
