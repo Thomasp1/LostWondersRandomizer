@@ -10,6 +10,7 @@ import Foundation
 import SwiftUI
 
 class PlayersAndCivs: ObservableObject {
+    @Published var items: [PlayerCivItem] = (1..<4).map { PlayerCivItem(name: "Player \($0)", civ: "") }
     @Published var players = [String](repeating: "", count: 10)
     @Published var civs = [String](repeating: "", count: 10)
     @Published var wonderBundles: Set = [WonderBundle.original]
@@ -99,6 +100,14 @@ class PlayersAndCivs: ObservableObject {
         soundManager.playChronoSound()
     }
     
+    func playLongChrono() {
+        soundManager.playLongChronoSound()
+    }
+    
+    func stopSounds() {
+        soundManager.stop()
+    }
+    
     func generateCivs() {
         if self.actualPlayerNum > 2 {
             (self.civs,self.notes) = Generator.generate(
@@ -110,7 +119,65 @@ class PlayersAndCivs: ObservableObject {
         }
     }
     
+    func generateCivList() {
+        if self.items.count > 2 {
+            (self.civs,self.notes) = Generator.generate(
+                playerNum: self.items.count,
+                bundles: self.wonderBundles,
+                teams: self.teams,
+                startingResourceFilter: self.startingResourceFiltering,
+                cardColorFilter: self.cardColorThemeFiltering)
+            for index in 0..<self.items.count {
+                items[index].civ = self.civs[index]
+                
+            }
+            debugPrint(civs)
+            debugPrint(items)
+        }
+    }
+    
     func changePlayer(at: Int, name: String) {
         players[at] = name
+    }
+    
+    private let playerNumMin = 3
+    private var currentPlayerNumMax: Int {
+        if wonderBundles.count > 1 {
+            return 8
+        } else {
+            return 7
+        }
+    }
+    
+    var disableDelete: Bool {
+        return items.count <= playerNumMin
+    }
+    
+    func onAdd() {
+        if items.count < currentPlayerNumMax {
+            items.append(PlayerCivItem(name: "Player \(items.count + 1)", civ: ""))
+        }
+        clearCivs()
+    }
+    
+    func onDelete(offsets: IndexSet) {
+        if items.count > playerNumMin {
+            items.remove(atOffsets: offsets)
+        }
+        clearCivs()
+    }
+    
+    func onMove(source: IndexSet, destination: Int) {
+        items.move(fromOffsets: source, toOffset: destination)
+    }
+    
+    func clearCivs() {
+        for index in 0..<civs.count {
+            civs[index] = ""
+        }
+        for index in 0..<items.count {
+            items[index].civ = ""
+        }
+        notes = ""
     }
 }

@@ -12,6 +12,7 @@ import AVFoundation
 class SoundManager {
     
     var chronoSoundEffect: AVAudioPlayer?
+    var longchronoSoundEffect: AVAudioPlayer?
     
     func playChronoSound() {
         guard let path = Bundle.main.path(forResource: "chronosound.caf", ofType: nil) else { return }
@@ -24,6 +25,23 @@ class SoundManager {
             debugPrint("couldn't load file")
         }
         
+    }
+    
+    func playLongChronoSound() {
+        guard let path = Bundle.main.path(forResource: "chronolong_downsampled.caf", ofType: nil) else { return }
+        let url = URL(fileURLWithPath: path)
+        
+        do {
+            longchronoSoundEffect = try AVAudioPlayer(contentsOf: url)
+            longchronoSoundEffect?.play()
+        } catch {
+            debugPrint("couldn't load file")
+        }
+    }
+    
+    func stop() {
+        chronoSoundEffect?.stop()
+        longchronoSoundEffect?.stop()
     }
     
 }
