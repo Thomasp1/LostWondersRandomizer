@@ -57,26 +57,12 @@ struct PlayersListView: View {
                 .navigationBarTitle("", displayMode: .inline)
                 if !editMode.isEditing {
                     HStack(alignment: .center) {
-                        if playersAndCivs.temporalAvailable && !showTemporal {
-                            Button("Temporal\nParadox") {
-                                self.showTemporal = true
-                                self.playersAndCivs.playChronoSound()
-                            }
-                            .buttonStyle(TemporalButtonStyle())
-                        } else {
-                            Button("Temporal Paradox") {
-                                self.showTemporal = true
-                            }
-                            .buttonStyle(TemporalButtonStyle())
-                            .hidden()
-                        }
                         Button("GENERATE") {
                             self.playersAndCivs.generateCivList()
                             self.showTemporal = false
                         }
                         .buttonStyle(GenerateButtonStyle())
-                        Spacer()
-                        .frame(maxWidth: .infinity)
+                        .padding()
                     }
                     .padding(2)
                     .border(Color.gray, width: 0.25)

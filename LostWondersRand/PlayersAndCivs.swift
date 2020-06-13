@@ -100,6 +100,14 @@ class PlayersAndCivs: ObservableObject {
         soundManager.playChronoSound()
     }
     
+    func playLongChrono() {
+        soundManager.playLongChronoSound()
+    }
+    
+    func stopSounds() {
+        soundManager.stop()
+    }
+    
     func generateCivs() {
         if self.actualPlayerNum > 2 {
             (self.civs,self.notes) = Generator.generate(
