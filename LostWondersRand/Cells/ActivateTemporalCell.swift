@@ -15,16 +15,17 @@ struct ActivateTemporalCell: View {
     var longPress: some Gesture {
         LongPressGesture(minimumDuration: 6.2)
             .updating($highlight) { currentstate, gesturestate, transaction in
-                transaction.animation = Animation.easeInOut(duration: 6.2)
+                transaction.animation = Animation.linear(duration: 6.2)
                 gesturestate = currentstate
                 debugPrint("currentstate: \(currentstate)")
                 debugPrint("gesturestate: \(gesturestate)")
                 debugPrint("transaction: \(transaction)")
             }
-            .onEnded { _ in
+            .onEnded { value in
                 self.playersAndCivs.playChronoSound()
                 self.showTemporal = true
                 debugPrint("Gesture onEnded")
+                debugPrint("value: \(value)")
             }
             .onChanged { _ in
                 self.playersAndCivs.playLongChrono()
@@ -45,17 +46,25 @@ struct ActivateTemporalCell: View {
                 debugPrint("drag ended")
             }
     }
+    var cancelHold: some Gesture {
+        LongPressGesture(minimumDuration: .infinity)
+        .onEnded { _ in
+            //self.playersAndCivs.stopSounds()
+            debugPrint("cancelHold ended")
+        }
+    }
     var body: some View {
         Text("Activate Temporal Paradox")
+            .background(Color.clear)
             .font(.headline)
             .foregroundColor(Color.white)
             .lineLimit(2)
             .multilineTextAlignment(.center)
             .gesture(longPress)
-            .simultaneousGesture(cancelPress)
+            .simultaneousGesture(cancelHold)
             .simultaneousGesture(cancelDrag)
             .listRowBackground(
-                self.highlight ? Color.init(red: 0.0, green: 0.5, blue: 0.8) :
+                self.highlight ? Color.init(red: 0.0, green: 1.0, blue: 1.0) :
                 Color.init(red: 0.2, green: 0.3, blue: 0.5)
             )
     }

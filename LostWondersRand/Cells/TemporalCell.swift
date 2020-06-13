@@ -12,14 +12,17 @@ struct TemporalCell: View {
     var temporalCivChoice: String
     var choiceNum: Int
     var body: some View {
-        HStack(alignment: .center, spacing: 4) {
+        HStack(spacing: 4) {
             Text("Temporal choice \(choiceNum): ")
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .fixedSize(horizontal: false, vertical: true)
             Text(temporalCivChoice)
             .lineLimit(1)
             .fixedSize(horizontal: false, vertical: true)
+            .frame(maxWidth: .infinity, alignment: .trailing)
         }
-        .padding()
         .frame(height: 44)
+        .frame(maxWidth: .infinity)
     }
 }
 

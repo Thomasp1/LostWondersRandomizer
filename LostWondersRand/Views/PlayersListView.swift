@@ -42,11 +42,12 @@ struct PlayersListView: View {
                         TemporalCell(temporalCivChoice: self.playersAndCivs.temporalChoices[0], choiceNum: 1)
                         TemporalCell(temporalCivChoice: self.playersAndCivs.temporalChoices[1], choiceNum: 2)
                     }
+                    if playersAndCivs.temporalAvailable && !showTemporal {
+                        ActivateTemporalCell(showTemporal: $showTemporal.animation())
+                            .frame(minHeight: 88)
+                    }
                     if !playersAndCivs.notes.isEmpty {
                         NotesCell(notes: self.playersAndCivs.notes)
-                    }
-                    if playersAndCivs.temporalAvailable && !showTemporal {
-                        ActivateTemporalCell(showTemporal: $showTemporal)
                     }
                     
                 }
