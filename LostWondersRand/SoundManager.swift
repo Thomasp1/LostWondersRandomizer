@@ -11,37 +11,37 @@ import AVFoundation
 
 class SoundManager {
     
-    var chronoSoundEffect: AVAudioPlayer?
-    var longchronoSoundEffect: AVAudioPlayer?
+    private var defaultPlayer: AVAudioPlayer?
     
     func playChronoSound() {
-        guard let path = Bundle.main.path(forResource: "chronosound.caf", ofType: nil) else { return }
-        let url = URL(fileURLWithPath: path)
-        
-        do {
-            chronoSoundEffect = try AVAudioPlayer(contentsOf: url)
-            chronoSoundEffect?.play()
-        } catch {
-            debugPrint("couldn't load file")
-        }
-        
+        playSound(resource: "chronosound.caf")
     }
     
     func playLongChronoSound() {
-        guard let path = Bundle.main.path(forResource: "chronolong_downsampled.caf", ofType: nil) else { return }
+        playSound(resource: "chronolong_downsampled.caf")
+    }
+    
+    func playPowerDown() {
+        playSound(resource: "powerdown.caf")
+    }
+    
+    private func playSound(resource: String) {
+        guard let path = Bundle.main.path(forResource: resource, ofType: nil) else {
+            debugPrint("couldn't find file: \(resource)")
+            return
+        }
         let url = URL(fileURLWithPath: path)
         
         do {
-            longchronoSoundEffect = try AVAudioPlayer(contentsOf: url)
-            longchronoSoundEffect?.play()
+            defaultPlayer = try AVAudioPlayer(contentsOf: url)
+            defaultPlayer?.play()
         } catch {
-            debugPrint("couldn't load file")
+            debugPrint("couldn't load file: \(resource)")
         }
     }
     
     func stop() {
-        chronoSoundEffect?.stop()
-        longchronoSoundEffect?.stop()
+        defaultPlayer?.stop()
     }
     
 }
