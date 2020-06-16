@@ -104,6 +104,10 @@ class PlayersAndCivs: ObservableObject {
         soundManager.playLongChronoSound()
     }
     
+    func playPowerDown() {
+        soundManager.playPowerDown()
+    }
+    
     func stopSounds() {
         soundManager.stop()
     }

@@ -12,11 +12,12 @@ struct ActivateTemporalCell: View {
     @EnvironmentObject var playersAndCivs: PlayersAndCivs
     @Binding var showTemporal: Bool
     @GestureState var highlight = false
+    let spoolUpTime: Double = 6.1
     var animationGesture: some Gesture {
-        LongPressGesture(minimumDuration: .infinity)
+        LongPressGesture(minimumDuration: (spoolUpTime))
         .updating($highlight) { value, state, transaction in
-            transaction.animation = Animation.linear(duration: 6.1)
-            state = true
+            transaction.animation = Animation.linear(duration: self.spoolUpTime)
+            state = value
         }
     }
     
@@ -27,15 +28,17 @@ struct ActivateTemporalCell: View {
             .foregroundColor(Color.white)
             .lineLimit(2)
             .multilineTextAlignment(.center)
-            .onLongPressGesture(minimumDuration: 6.1, pressing: { inProgress in
+            .onLongPressGesture(minimumDuration: spoolUpTime, pressing: { inProgress in
                 debugPrint("In Progress; \(inProgress)")
                 if inProgress {
                     self.playersAndCivs.playLongChrono()
                 } else {
                     self.playersAndCivs.stopSounds()
+                    self.playersAndCivs.playPowerDown()
                 }
             }) {
                 debugPrint("long pressed!")
+                self.playersAndCivs.stopSounds()
                 self.playersAndCivs.playChronoSound()
                 self.showTemporal = true
             }
