@@ -28,6 +28,8 @@ struct ActivateTemporalCell: View {
             .foregroundColor(Color.white)
             .lineLimit(2)
             .multilineTextAlignment(.center)
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .contentShape(Rectangle())
             .onLongPressGesture(minimumDuration: spoolUpTime, pressing: { inProgress in
                 debugPrint("In Progress; \(inProgress)")
                 if inProgress {
