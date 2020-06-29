@@ -13,7 +13,7 @@ struct TemporalCell: View {
     var choiceNum: Int
     var body: some View {
         HStack(spacing: 4) {
-            Text("Temporal choice \(choiceNum): ")
+            Text("Temporal \(choiceNum): ")
             .frame(maxWidth: .infinity, alignment: .leading)
             .fixedSize(horizontal: false, vertical: true)
             Text(temporalCivChoice)

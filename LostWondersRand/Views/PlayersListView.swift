@@ -66,6 +66,7 @@ struct PlayersListView: View {
                         .padding()
                     }
                     .padding(2)
+                    .background(Color.init(red: 0.9375, green: 0.9375, blue: 0.9609375))
                     .border(Color.gray, width: 0.25)
                 }
             }

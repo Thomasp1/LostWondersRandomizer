@@ -148,7 +148,10 @@ class Generator {
         
         //select wonders
         for _ in 0..<playerNum {
-            guard let selectedWonder = remainingChoiceWonders.randomElement() else { break }
+            
+            var randomNumberGenerator: RandomNumberGenerator = SystemRandomNumberGenerator()
+            var random = AnyRandomNumberGenerator(randomNumberGenerator)
+            guard let selectedWonder = remainingChoiceWonders.randomElement(using: &random) else { break }
             
             switch selectedWonder {
             case let element where self.stupidWonders.contains(element.key):
