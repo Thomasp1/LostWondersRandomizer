@@ -30,7 +30,7 @@ enum WonderBundle {
             return Bundle.main.decode([String:Wonder].self, from: "WonderPackWonders.json")
         case .catan:
             return Bundle.main.decode([String:Wonder].self, from: "CatanWonder.json")
-        case .armada:
+        case .armada:  
             return Bundle.main.decode([String:Wonder].self, from: "ArmadaWonder.json")
         case .lostWonders:
             return Bundle.main.decode([String:Wonder].self, from: "LostWonders.json")

@@ -26,6 +26,7 @@
 		8844C3F9246B2C97003C0002 /* Wonder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8844C3F8246B2C97003C0002 /* Wonder.swift */; };
 		8844DF8524954303002151D6 /* chronolong_downsampled.caf in Resources */ = {isa = PBXBuildFile; fileRef = 8844DF8424953595002151D6 /* chronolong_downsampled.caf */; };
 		8846967624AA7DA8000C37E9 /* AnyRandomNumberGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8846967524AA7DA8000C37E9 /* AnyRandomNumberGenerator.swift */; };
+		8846967824AA84B3000C37E9 /* SeededNumberGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8846967724AA84B3000C37E9 /* SeededNumberGenerator.swift */; };
 		884C3FBB2490470F00D02F4D /* PlayerListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884C3FBA2490470F00D02F4D /* PlayerListCell.swift */; };
 		885EE60E248D5C4600B8B6B7 /* PlayersListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 885EE60D248D5C4600B8B6B7 /* PlayersListView.swift */; };
 		886031FD24801E5F00E38292 /* SoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886031FC24801E5F00E38292 /* SoundManager.swift */; };
@@ -82,6 +83,7 @@
 		8844C3F8246B2C97003C0002 /* Wonder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wonder.swift; sourceTree = "<group>"; };
 		8844DF8424953595002151D6 /* chronolong_downsampled.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = chronolong_downsampled.caf; sourceTree = "<group>"; };
 		8846967524AA7DA8000C37E9 /* AnyRandomNumberGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyRandomNumberGenerator.swift; sourceTree = "<group>"; };
+		8846967724AA84B3000C37E9 /* SeededNumberGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeededNumberGenerator.swift; sourceTree = "<group>"; };
 		884C3FBA2490470F00D02F4D /* PlayerListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerListCell.swift; sourceTree = "<group>"; };
 		885EE60D248D5C4600B8B6B7 /* PlayersListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayersListView.swift; sourceTree = "<group>"; };
 		886031FC24801E5F00E38292 /* SoundManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundManager.swift; sourceTree = "<group>"; };
@@ -188,6 +190,7 @@
 			children = (
 				8844C3F6246B2B0D003C0002 /* Generator.swift */,
 				8846967524AA7DA8000C37E9 /* AnyRandomNumberGenerator.swift */,
+				8846967724AA84B3000C37E9 /* SeededNumberGenerator.swift */,
 			);
 			path = Generator;
 			sourceTree = "<group>";
@@ -444,6 +447,7 @@
 				8865A2F3249E122900B42F9A /* PickerCell.swift in Sources */,
 				8843449A246DC49000484D86 /* SetExtension.swift in Sources */,
 				88A70EAB2491779600AAC011 /* NotesCell.swift in Sources */,
+				8846967824AA84B3000C37E9 /* SeededNumberGenerator.swift in Sources */,
 				8844C3F5246B1BC2003C0002 /* BundleExtension.swift in Sources */,
 				885EE60E248D5C4600B8B6B7 /* PlayersListView.swift in Sources */,
 			);
